@@ -31,7 +31,7 @@ const SOLUTIONS = [
 export default function SolutionsGrid() {
   return (
     <section className="bg-surface-container-low py-section-gap">
-      <div className="px-margin-desktop max-w-container-max mx-auto">
+      <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="flex justify-between items-end mb-12">
           <div>
             <h2 className="font-headline-md text-headline-md mb-2">

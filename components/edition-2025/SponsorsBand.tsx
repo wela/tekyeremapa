@@ -10,7 +10,7 @@ const SPONSORS = [
 export default function SponsorsBand() {
   return (
     <section className="bg-surface py-20 border-t border-on-surface/10">
-      <div className="px-margin-desktop max-w-container-max mx-auto">
+      <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="text-center mb-12">
           <span className="font-label-caps text-label-caps text-on-surface-variant tracking-widest">
             POWERED BY

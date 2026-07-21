@@ -23,7 +23,7 @@ const MILESTONES = [
 
 export default function Timeline() {
   return (
-    <section className="px-margin-desktop max-w-container-max mx-auto py-section-gap">
+    <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap">
       <h2 className="font-headline-md text-headline-md mb-12">Road to Impact</h2>
       <div className="space-y-0">
         {MILESTONES.map((milestone, index) => (

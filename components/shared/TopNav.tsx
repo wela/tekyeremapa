@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Icon from "@/components/shared/Icon";
 
 export type TopNavVariant =
   | "home"
@@ -34,6 +35,7 @@ const CTA_STYLES: Record<TopNavVariant, string> = {
 export default function TopNav({ variant }: TopNavProps) {
   const isHome = variant === "home";
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 0);
@@ -70,40 +72,70 @@ export default function TopNav({ variant }: TopNavProps) {
       </Link>
     );
 
-  const cta = (
-    <Link href="/editions/2026" className={CTA_STYLES[variant]}>
-      Enter 2026
-    </Link>
-  );
+  const renderLink = (
+    link: (typeof LINKS)[number],
+    className: string,
+    onClick?: () => void,
+  ) =>
+    link.href === "#" ? (
+      <a key={link.key} href="#" className={className} onClick={onClick}>
+        {link.label}
+      </a>
+    ) : (
+      <Link key={link.key} href={link.href} className={className} onClick={onClick}>
+        {link.label}
+      </Link>
+    );
 
-  const navLinks = (
+  const desktopLinks = (
     <div className="hidden md:flex items-center gap-8">
       {links.map((link) =>
-        link.href === "#" ? (
-          <a key={link.key} href="#" className={inactiveClass}>
-            {link.label}
-          </a>
-        ) : (
-          <Link
-            key={link.key}
-            href={link.href}
-            className={link.key === activeKey ? activeClass : inactiveClass}
-          >
-            {link.label}
-          </Link>
-        ),
+        renderLink(link, link.key === activeKey ? activeClass : inactiveClass),
       )}
     </div>
   );
+
+  const rightSide = (
+    <div className="flex items-center gap-3">
+      <Link
+        href="/editions/2026"
+        className={`hidden md:inline-block ${CTA_STYLES[variant]}`}
+      >
+        Enter 2026
+      </Link>
+      <button
+        type="button"
+        aria-expanded={menuOpen}
+        aria-label="Toggle navigation"
+        className="md:hidden p-2 -mr-2 text-on-surface"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        <Icon name={menuOpen ? "close" : "menu"} />
+      </button>
+    </div>
+  );
+
+  const mobilePanel = menuOpen ? (
+    <div className="md:hidden bg-surface border-t border-on-surface/10 px-6 py-6 flex flex-col gap-5">
+      {links.map((link) =>
+        renderLink(
+          link,
+          `w-fit ${link.key === activeKey ? activeClass : inactiveClass}`,
+          () => setMenuOpen(false),
+        ),
+      )}
+    </div>
+  ) : null;
 
   if (isHome) {
     return (
       <header className="sticky top-0 z-50 bg-surface border-b border-primary/10">
         <nav className="flex justify-between items-center w-full px-6 md:px-gutter py-4 max-w-container-max mx-auto">
           {brand}
-          {navLinks}
-          {cta}
+          {desktopLinks}
+          {rightSide}
         </nav>
+        {mobilePanel}
       </header>
     );
   }
@@ -112,11 +144,12 @@ export default function TopNav({ variant }: TopNavProps) {
     <header
       className={`fixed top-0 w-full bg-surface border-b border-on-surface/15 z-50 transition-shadow${scrolled ? " shadow-sm" : ""}`}
     >
-      <nav className="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+      <nav className="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         {brand}
-        {navLinks}
-        {cta}
+        {desktopLinks}
+        {rightSide}
       </nav>
+      {mobilePanel}
     </header>
   );
 }

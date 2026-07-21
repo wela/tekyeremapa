@@ -2,7 +2,7 @@ import Icon from "@/components/shared/Icon";
 
 export default function ImpactTracks() {
   return (
-    <section className="py-section-gap px-margin-desktop bg-surface-container">
+    <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container">
       <div className="max-w-container-max mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-display-lg text-headline-md">Impact Tracks</h2>
@@ -63,7 +63,7 @@ export default function ImpactTracks() {
             </div>
             <Icon
               name="lightbulb"
-              className="text-[120px] opacity-20 transition-transform group-hover:scale-110"
+              className="hidden md:block text-[120px] opacity-20 transition-transform group-hover:scale-110"
             />
           </div>
         </div>

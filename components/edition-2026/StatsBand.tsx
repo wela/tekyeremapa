@@ -7,7 +7,7 @@ const STATS = [
 
 export default function StatsBand() {
   return (
-    <section className="py-section-gap px-margin-desktop bg-surface-container-low">
+    <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low">
       <div className="max-w-container-max mx-auto">
         <div className="grid md:grid-cols-4 gap-gutter text-center">
           {STATS.map((stat, index) => (

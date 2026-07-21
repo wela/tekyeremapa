@@ -24,9 +24,9 @@ const STEPS = [
 
 export default function Roadmap() {
   return (
-    <section className="py-section-gap px-margin-desktop">
+    <section className="py-section-gap px-margin-mobile md:px-margin-desktop">
       <div className="max-w-container-max mx-auto">
-        <div className="flex justify-between items-end mb-16">
+        <div className="flex flex-col gap-6 md:flex-row md:justify-between md:items-end mb-16">
           <div className="max-w-xl">
             <span className="font-stats-mono text-primary text-label-caps uppercase tracking-[0.2em]">
               The Journey
@@ -37,7 +37,7 @@ export default function Roadmap() {
           </div>
           <a
             href="#"
-            className="font-label-caps text-on-surface border-b-2 border-primary hover:text-primary transition-colors"
+            className="w-fit font-label-caps text-on-surface border-b-2 border-primary hover:text-primary transition-colors"
           >
             Download PDF Schedule
           </a>

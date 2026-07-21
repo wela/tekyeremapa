@@ -62,7 +62,7 @@ const GROUPS = [
 
 export default function MentorsColumns() {
   return (
-    <section className="px-margin-desktop max-w-container-max mx-auto py-section-gap">
+    <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap">
       <h2 className="font-headline-md text-headline-md mb-12">Expert Guidance</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         {GROUPS.map((group) => (

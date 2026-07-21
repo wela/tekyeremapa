@@ -25,7 +25,7 @@ const PHOTOS = [
 
 export default function RetroGallery() {
   return (
-    <section className="py-section-gap px-margin-desktop bg-surface-container-high border-y border-on-surface/5">
+    <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-high border-y border-on-surface/5">
       <div className="max-w-container-max mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-display-lg text-headline-md">

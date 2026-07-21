@@ -5,7 +5,7 @@ import type { EditionRowData } from "@/lib/editions";
 export default function EditionRow({ edition }: { edition: EditionRowData }) {
   const content = (
     <>
-      <div className="col-span-2">
+      <div className="md:col-span-2">
         <span
           className={`year-text inline-block font-display-lg text-display-lg-mobile md:text-display-lg transition-transform duration-500 ${
             edition.status === "open" ? "text-primary" : "text-on-surface-variant"
@@ -14,7 +14,7 @@ export default function EditionRow({ edition }: { edition: EditionRowData }) {
           {edition.year}
         </span>
       </div>
-      <div className="col-span-7">
+      <div className="md:col-span-7">
         <h3 className="font-headline-md text-headline-md text-on-surface mb-2">
           {edition.title}
         </h3>
@@ -22,7 +22,7 @@ export default function EditionRow({ edition }: { edition: EditionRowData }) {
           {edition.description}
         </p>
       </div>
-      <div className="col-span-3 flex md:justify-end items-center mt-4 md:mt-0">
+      <div className="md:col-span-3 flex md:justify-end items-center mt-4 md:mt-0">
         {edition.status === "open" ? (
           <div className="flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />

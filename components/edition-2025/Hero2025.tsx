@@ -8,12 +8,12 @@ const BADGES = [
 
 export default function Hero2025() {
   return (
-    <section className="px-margin-desktop max-w-container-max mx-auto pt-16 pb-section-gap grid grid-cols-1 md:grid-cols-12 gap-gutter">
+    <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pt-16 pb-section-gap grid grid-cols-1 md:grid-cols-12 gap-gutter">
       <div className="md:col-span-8">
         <span className="font-stats-mono text-stats-mono text-primary uppercase tracking-widest block mb-4">
           Edition Archive
         </span>
-        <h1 className="font-display-lg text-display-lg mb-6 leading-none">
+        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-none">
           2025: Breaking the Silence
         </h1>
         <div className="flex flex-wrap gap-4 mb-8">

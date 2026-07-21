@@ -4,7 +4,7 @@ import Icon from "@/components/shared/Icon";
 export default function EditionsFooter() {
   return (
     <footer className="w-full py-section-gap bg-surface-container border-t border-on-surface/15">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="col-span-1 md:col-span-4 mb-8 md:mb-0">
           <Link href="/" className="font-display-lg text-headline-md text-primary">
             Tɛkyerɛma Pa

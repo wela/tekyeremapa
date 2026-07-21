@@ -9,7 +9,7 @@ const FACTS = [
 
 export default function Hero2026() {
   return (
-    <section className="relative py-section-gap px-margin-desktop overflow-hidden border-b border-on-surface/5">
+    <section className="relative py-section-gap px-margin-mobile md:px-margin-desktop overflow-hidden border-b border-on-surface/5">
       <div className="max-w-container-max mx-auto grid md:grid-cols-12 gap-gutter items-center">
         <div className="md:col-span-7 z-10">
           <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
@@ -18,7 +18,7 @@ export default function Hero2026() {
               Now Open for Entries
             </span>
           </div>
-          <h1 className="font-display-lg text-display-lg mb-4 text-on-surface leading-[1.1]">
+          <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 text-on-surface leading-[1.1]">
             Edition <span className="text-primary italic">2026</span>: Inclusive
             Digital Solutions
           </h1>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Gallery() {
   return (
-    <section className="px-margin-desktop max-w-container-max mx-auto py-section-gap">
+    <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap">
       <h2 className="font-headline-md text-headline-md mb-8">Edition Gallery</h2>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[300px]">
         <div className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl hairline-border">

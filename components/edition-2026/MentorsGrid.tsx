@@ -34,7 +34,7 @@ const MENTORS = [
 
 export default function MentorsGrid() {
   return (
-    <section className="py-section-gap px-margin-desktop">
+    <section className="py-section-gap px-margin-mobile md:px-margin-desktop">
       <div className="max-w-container-max mx-auto">
         <div className="flex items-center justify-between mb-12">
           <h2 className="font-display-lg text-headline-md">Guided by Experts</h2>

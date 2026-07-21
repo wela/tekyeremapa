@@ -4,7 +4,7 @@ import Icon from "@/components/shared/Icon";
 export default function Footer2025() {
   return (
     <footer className="bg-surface-container w-full py-section-gap border-t border-on-surface/15">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="md:col-span-4">
           <div className="font-display-lg text-headline-md text-primary mb-6">
             Tɛkyerɛma Pa
