@@ -145,7 +145,7 @@ export default function TopNav({ variant }: TopNavProps) {
 
   const mobilePanel = menuOpen ? (
     <div className="md:hidden bg-surface border-t border-on-surface/10 px-6 py-6 flex flex-col gap-5">
-      {links.map((link) =>
+      {LINKS.map((link) =>
         renderLink(
           link,
           `w-fit ${link.key === activeKey ? activeClass : inactiveClass}`,
