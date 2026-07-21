@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function WhyItMatters() {
   return (
     <section className="bg-surface py-20 md:py-24 text-center">
@@ -11,12 +13,12 @@ export default function WhyItMatters() {
           by empowering developers to build tools that speak the language of
           the people.
         </p>
-        <a
-          href="#"
+        <Link
+          href="/about"
           className="font-body-md text-secondary border border-secondary px-8 py-3 rounded-full hover:bg-secondary/5 transition-colors"
         >
           Learn more about us
-        </a>
+        </Link>
       </div>
     </section>
   );

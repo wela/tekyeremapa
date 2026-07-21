@@ -28,12 +28,12 @@ export default function EditionsFooter() {
               </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/about"
                 className="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md"
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
               <Link

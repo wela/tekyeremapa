@@ -195,6 +195,13 @@
   --color-secondary: #0d2350;
 }
 
+/* ---- About page accent (Fraunces display type, nested inside the editions scope) ---- */
+[data-theme="about"] {
+  --font-display-lg: var(--font-fraunces), serif;
+  --font-display-lg-mobile: var(--font-fraunces), serif;
+  --font-headline-md: var(--font-fraunces), serif;
+}
+
 /* ---- MTN gold accent (2026 edition, nested inside the editions scope) ---- */
 [data-theme="gold"] {
   --color-primary: #ffc300;
@@ -255,6 +262,15 @@
 }
 .hairline-rule {
   border-bottom: 1px solid rgba(13, 35, 80, 0.15);
+}
+.editorial-link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s;
+}
+.editorial-link:hover {
+  opacity: 0.8;
 }
 .editorial-row .year-text {
   transition: transform 0.5s;

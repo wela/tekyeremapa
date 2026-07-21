@@ -28,12 +28,12 @@ export default function ContactFooter() {
               </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/about"
                 className="text-on-surface-variant hover:text-primary transition-colors"
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
               <a

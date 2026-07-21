@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {
   EB_Garamond,
+  Fraunces,
   JetBrains_Mono,
   Libre_Caslon_Text,
   Outfit,
@@ -36,6 +37,12 @@ const spaceMono = Space_Mono({
   variable: "--font-space-mono",
 });
 
+const fraunces = Fraunces({
+  subsets: ["latin", "latin-ext"],
+  axes: ["opsz"],
+  variable: "--font-fraunces",
+});
+
 export const metadata: Metadata = {
   title: "Tɛkyerɛma Pa | Empowering Communication",
   description:
@@ -50,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ebGaramond.variable} ${jetbrainsMono.variable} ${outfit.variable} ${libreCaslon.variable} ${spaceMono.variable}`}
+      className={`${ebGaramond.variable} ${jetbrainsMono.variable} ${outfit.variable} ${libreCaslon.variable} ${spaceMono.variable} ${fraunces.variable}`}
     >
       <body>
         {/* eslint-disable-next-line @next/next/no-page-custom-font -- app-router root layout applies to every page */}

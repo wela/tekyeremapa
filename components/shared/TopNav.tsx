@@ -9,7 +9,8 @@ export type TopNavVariant =
   | "editions-index"
   | "edition-2025"
   | "edition-2026"
-  | "contact";
+  | "contact"
+  | "about";
 
 interface TopNavProps {
   variant: TopNavVariant;
@@ -18,7 +19,7 @@ interface TopNavProps {
 const LINKS = [
   { key: "home", label: "Home", href: "/" },
   { key: "editions", label: "Editions", href: "/editions" },
-  { key: "about", label: "About", href: "#" },
+  { key: "about", label: "About", href: "/about" },
   { key: "partner", label: "Partner", href: "/contact#partner" },
   { key: "contact", label: "Contact", href: "/contact" },
 ] as const;
@@ -33,10 +34,13 @@ const CTA_STYLES: Record<TopNavVariant, string> = {
     "bg-primary text-on-primary px-6 py-3 rounded-xl font-label-caps text-label-caps hover:opacity-90 active:scale-95 transition-all duration-150 shadow-sm",
   contact:
     "bg-primary text-on-primary px-6 py-2 rounded-xl font-label-caps text-label-caps hover:bg-primary-container transition-all active:scale-95",
+  about:
+    "bg-primary text-on-primary px-6 py-2 rounded-full font-bold transition-all hover:opacity-80",
 };
 
 export default function TopNav({ variant }: TopNavProps) {
   const isHome = variant === "home";
+  const isAbout = variant === "about";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -47,19 +51,27 @@ export default function TopNav({ variant }: TopNavProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = LINKS.filter((link) => (isHome ? true : link.key !== "home"));
+  const links = LINKS.filter((link) =>
+    isHome || isAbout ? true : link.key !== "home",
+  );
   const activeKey = isHome
     ? "home"
-    : variant === "contact"
-      ? "contact"
-      : "editions";
+    : isAbout
+      ? "about"
+      : variant === "contact"
+        ? "contact"
+        : "editions";
 
   const activeClass = isHome
     ? "font-body-md text-secondary border-b-2 border-secondary pb-1"
-    : "text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md";
+    : isAbout
+      ? "text-primary font-bold border-b-2 border-primary transition-colors duration-200 font-body-md text-body-md"
+      : "text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md";
   const inactiveClass = isHome
     ? "font-body-md text-on-surface-variant hover:text-primary transition-colors"
-    : "text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200";
+    : isAbout
+      ? "text-on-surface-variant hover:text-primary-container transition-colors duration-200 font-body-md text-body-md"
+      : "text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors duration-200";
 
   const brand =
     variant === "edition-2026" ? (
@@ -71,6 +83,13 @@ export default function TopNav({ variant }: TopNavProps) {
       </Link>
     ) : isHome ? (
       <Link href="/" className="text-headline-md font-headline-md text-primary">
+        Tɛkyerɛma Pa
+      </Link>
+    ) : isAbout ? (
+      <Link
+        href="/"
+        className="font-headline-md text-headline-md font-bold text-primary tracking-tight"
+      >
         Tɛkyerɛma Pa
       </Link>
     ) : variant === "contact" ? (
@@ -90,16 +109,11 @@ export default function TopNav({ variant }: TopNavProps) {
     link: (typeof LINKS)[number],
     className: string,
     onClick?: () => void,
-  ) =>
-    link.href === "#" ? (
-      <a key={link.key} href="#" className={className} onClick={onClick}>
-        {link.label}
-      </a>
-    ) : (
-      <Link key={link.key} href={link.href} className={className} onClick={onClick}>
-        {link.label}
-      </Link>
-    );
+  ) => (
+    <Link key={link.key} href={link.href} className={className} onClick={onClick}>
+      {link.label}
+    </Link>
+  );
 
   const desktopLinks = (
     <div className="hidden md:flex items-center gap-8">
@@ -145,6 +159,19 @@ export default function TopNav({ variant }: TopNavProps) {
     return (
       <header className="sticky top-0 z-50 bg-surface border-b border-primary/10">
         <nav className="flex justify-between items-center w-full px-6 md:px-gutter py-4 max-w-container-max mx-auto">
+          {brand}
+          {desktopLinks}
+          {rightSide}
+        </nav>
+        {mobilePanel}
+      </header>
+    );
+  }
+
+  if (isAbout) {
+    return (
+      <header className="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-sm border-b border-outline-variant">
+        <nav className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4">
           {brand}
           {desktopLinks}
           {rightSide}
