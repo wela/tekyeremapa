@@ -29,16 +29,22 @@ export default function Footer2026() {
                 Editions
               </Link>
             </li>
-            {["About", "Partner"].map((label) => (
-              <li key={label}>
-                <a
-                  href="#"
-                  className="text-on-surface-variant hover:text-primary transition-colors"
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
+            <li>
+              <a
+                href="#"
+                className="text-on-surface-variant hover:text-primary transition-colors"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <Link
+                href="/contact#partner"
+                className="text-on-surface-variant hover:text-primary transition-colors"
+              >
+                Partner
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="md:col-span-2">
@@ -46,7 +52,15 @@ export default function Footer2026() {
             Connect
           </h5>
           <ul className="space-y-4">
-            {["Contact", "Privacy Policy", "Accessibility"].map((label) => (
+            <li>
+              <Link
+                href="/contact"
+                className="text-on-surface-variant hover:text-primary transition-colors"
+              >
+                Contact
+              </Link>
+            </li>
+            {["Privacy Policy", "Accessibility"].map((label) => (
               <li key={label}>
                 <a
                   href="#"

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function HomeFooter() {
   return (
     <footer className="bg-surface-container-low border-t border-primary/5">
@@ -11,7 +13,7 @@ export default function HomeFooter() {
           </p>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-6">
-          {["Privacy", "Accessibility", "Contact"].map((label) => (
+          {["Privacy", "Accessibility"].map((label) => (
             <a
               key={label}
               href="#"
@@ -20,6 +22,12 @@ export default function HomeFooter() {
               {label}
             </a>
           ))}
+          <Link
+            href="/contact"
+            className="font-body-md text-on-tertiary-fixed-variant hover:text-secondary transition-colors"
+          >
+            Contact
+          </Link>
         </div>
       </div>
     </footer>

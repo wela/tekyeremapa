@@ -27,16 +27,30 @@ export default function EditionsFooter() {
                 Editions
               </Link>
             </li>
-            {["About", "Partner", "Contact"].map((label) => (
-              <li key={label}>
-                <a
-                  href="#"
-                  className="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md"
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
+            <li>
+              <a
+                href="#"
+                className="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <Link
+                href="/contact#partner"
+                className="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md"
+              >
+                Partner
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                className="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="col-span-1 md:col-span-2">

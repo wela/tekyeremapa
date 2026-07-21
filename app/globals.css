@@ -190,6 +190,11 @@
   --spacing-container-max: 1200px;
 }
 
+/* ---- Contact page accent (navy secondary, nested inside the editions scope) ---- */
+[data-theme="contact"] {
+  --color-secondary: #0d2350;
+}
+
 /* ---- MTN gold accent (2026 edition, nested inside the editions scope) ---- */
 [data-theme="gold"] {
   --color-primary: #ffc300;
@@ -248,6 +253,9 @@
 .edition-row-border {
   border-bottom: 1px solid rgba(139, 113, 108, 0.15);
 }
+.hairline-rule {
+  border-bottom: 1px solid rgba(13, 35, 80, 0.15);
+}
 .editorial-row .year-text {
   transition: transform 0.5s;
 }
@@ -262,7 +270,13 @@
     transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.2s ease;
 }
-.hover-lift:hover {
+.card-lift {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.hover-lift:hover,
+.card-lift:hover {
   transform: translateY(-4px);
   box-shadow: 0px 4px 12px rgba(13, 35, 80, 0.08);
 }

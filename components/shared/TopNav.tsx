@@ -8,7 +8,8 @@ export type TopNavVariant =
   | "home"
   | "editions-index"
   | "edition-2025"
-  | "edition-2026";
+  | "edition-2026"
+  | "contact";
 
 interface TopNavProps {
   variant: TopNavVariant;
@@ -18,8 +19,8 @@ const LINKS = [
   { key: "home", label: "Home", href: "/" },
   { key: "editions", label: "Editions", href: "/editions" },
   { key: "about", label: "About", href: "#" },
-  { key: "partner", label: "Partner", href: "#" },
-  { key: "contact", label: "Contact", href: "#" },
+  { key: "partner", label: "Partner", href: "/contact#partner" },
+  { key: "contact", label: "Contact", href: "/contact" },
 ] as const;
 
 const CTA_STYLES: Record<TopNavVariant, string> = {
@@ -30,6 +31,8 @@ const CTA_STYLES: Record<TopNavVariant, string> = {
     "bg-primary text-on-primary px-6 py-2 rounded-[14px] font-body-md font-semibold hover:opacity-90 active:scale-95 transition-all",
   "edition-2026":
     "bg-primary text-on-primary px-6 py-3 rounded-xl font-label-caps text-label-caps hover:opacity-90 active:scale-95 transition-all duration-150 shadow-sm",
+  contact:
+    "bg-primary text-on-primary px-6 py-2 rounded-xl font-label-caps text-label-caps hover:bg-primary-container transition-all active:scale-95",
 };
 
 export default function TopNav({ variant }: TopNavProps) {
@@ -45,7 +48,11 @@ export default function TopNav({ variant }: TopNavProps) {
   }, []);
 
   const links = LINKS.filter((link) => (isHome ? true : link.key !== "home"));
-  const activeKey = isHome ? "home" : "editions";
+  const activeKey = isHome
+    ? "home"
+    : variant === "contact"
+      ? "contact"
+      : "editions";
 
   const activeClass = isHome
     ? "font-body-md text-secondary border-b-2 border-secondary pb-1"
@@ -64,6 +71,13 @@ export default function TopNav({ variant }: TopNavProps) {
       </Link>
     ) : isHome ? (
       <Link href="/" className="text-headline-md font-headline-md text-primary">
+        Tɛkyerɛma Pa
+      </Link>
+    ) : variant === "contact" ? (
+      <Link
+        href="/"
+        className="font-display-lg text-headline-md text-primary tracking-tight"
+      >
         Tɛkyerɛma Pa
       </Link>
     ) : (
