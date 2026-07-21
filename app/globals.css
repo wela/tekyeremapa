@@ -1,0 +1,288 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens.
+ *
+ * Default values = Home design system (navy + terracotta, EB Garamond / JetBrains Mono).
+ * The `[data-theme="editions"]` scope re-maps the same semantic tokens to the
+ * Editions design system (clay red, Libre Caslon Text / Space Mono).
+ * The `[data-theme="gold"]` scope (nested inside editions on the 2026 page)
+ * swaps the primary accent to MTN gold.
+ */
+@theme {
+  /* Primary */
+  --color-primary: #041534;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1b2a4a;
+  --color-on-primary-container: #8392b7;
+  --color-primary-fixed: #d9e2ff;
+  --color-primary-fixed-dim: #b7c6ee;
+  --color-on-primary-fixed: #0a1a3a;
+  --color-on-primary-fixed-variant: #384668;
+  --color-inverse-primary: #b7c6ee;
+
+  /* Secondary */
+  --color-secondary: #8f4c37;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #ffa98f;
+  --color-on-secondary-container: #7a3b27;
+  --color-secondary-fixed: #ffdbd0;
+  --color-secondary-fixed-dim: #ffb59e;
+  --color-on-secondary-fixed: #3a0b00;
+  --color-on-secondary-fixed-variant: #723522;
+
+  /* Tertiary */
+  --color-tertiary: #0f1722;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #242b37;
+  --color-on-tertiary-container: #8b92a1;
+  --color-tertiary-fixed: #dce2f3;
+  --color-tertiary-fixed-dim: #c0c7d6;
+  --color-on-tertiary-fixed: #151c27;
+  --color-on-tertiary-fixed-variant: #404754;
+
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Surfaces */
+  --color-background: #fbf9f6;
+  --color-on-background: #1b1c1a;
+  --color-surface: #fbf9f6;
+  --color-on-surface: #1b1c1a;
+  --color-surface-variant: #e4e2df;
+  --color-on-surface-variant: #45464e;
+  --color-surface-dim: #dbdad7;
+  --color-surface-bright: #fbf9f6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f3f0;
+  --color-surface-container: #efeeeb;
+  --color-surface-container-high: #eae8e5;
+  --color-surface-container-highest: #e4e2df;
+  --color-surface-tint: #4f5e81;
+  --color-inverse-surface: #30312f;
+  --color-inverse-on-surface: #f2f0ed;
+  --color-outline: #75777f;
+  --color-outline-variant: #c5c6cf;
+
+  /* Font roles (actual families provided by next/font variables on <html>) */
+  --font-display-lg: var(--font-eb-garamond), serif;
+  --font-display-lg-mobile: var(--font-eb-garamond), serif;
+  --font-headline-md: var(--font-eb-garamond), serif;
+  --font-body-md: var(--font-outfit), sans-serif;
+  --font-body-lg: var(--font-outfit), sans-serif;
+  --font-eyebrow: var(--font-jetbrains-mono), monospace;
+  --font-stats-mono: var(--font-jetbrains-mono), monospace;
+  --font-label-caps: var(--font-jetbrains-mono), monospace;
+
+  /* Type scale */
+  --text-eyebrow: 12px;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.1em;
+  --text-eyebrow--font-weight: 600;
+
+  --text-label-caps: 12px;
+  --text-label-caps--line-height: 1;
+  --text-label-caps--font-weight: 700;
+
+  --text-display-lg: 48px;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 600;
+
+  --text-display-lg-mobile: 32px;
+  --text-display-lg-mobile--line-height: 1.2;
+  --text-display-lg-mobile--font-weight: 600;
+
+  --text-headline-md: 32px;
+  --text-headline-md--line-height: 1.2;
+  --text-headline-md--font-weight: 500;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.6;
+  --text-body-md--font-weight: 400;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.7;
+  --text-body-lg--font-weight: 400;
+
+  --text-stats-mono: 14px;
+  --text-stats-mono--line-height: 1;
+  --text-stats-mono--letter-spacing: 0.05em;
+  --text-stats-mono--font-weight: 500;
+
+  /* Layout scale */
+  --spacing-unit: 4px;
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 64px;
+  --spacing-section-gap: 120px;
+  --spacing-container-max: 1280px;
+}
+
+/* ---- Editions design system ---- */
+[data-theme="editions"] {
+  --color-primary: #a13924;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #c25139;
+  --color-on-primary-container: #fffbff;
+  --color-primary-fixed: #ffdad3;
+  --color-primary-fixed-dim: #ffb4a4;
+  --color-on-primary-fixed: #3e0500;
+  --color-on-primary-fixed-variant: #842411;
+  --color-inverse-primary: #ffb4a4;
+
+  --color-secondary: #4b5d8d;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #b5c8ff;
+  --color-on-secondary-container: #405382;
+  --color-secondary-fixed: #dae2ff;
+  --color-secondary-fixed-dim: #b3c5fc;
+  --color-on-secondary-fixed: #011946;
+  --color-on-secondary-fixed-variant: #324574;
+
+  --color-tertiary: #006767;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #008282;
+  --color-on-tertiary-container: #f3fffe;
+  --color-tertiary-fixed: #8ff3f2;
+  --color-tertiary-fixed-dim: #72d6d6;
+  --color-on-tertiary-fixed: #002020;
+  --color-on-tertiary-fixed-variant: #004f4f;
+
+  --color-background: #fbf9f4;
+  --color-on-background: #1b1c19;
+  --color-surface: #fbf9f4;
+  --color-on-surface: #1b1c19;
+  --color-surface-variant: #e4e2dd;
+  --color-on-surface-variant: #57423d;
+  --color-surface-dim: #dbdad5;
+  --color-surface-bright: #fbf9f4;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f3ee;
+  --color-surface-container: #f0eee9;
+  --color-surface-container-high: #eae8e3;
+  --color-surface-container-highest: #e4e2dd;
+  --color-surface-tint: #a53b26;
+  --color-inverse-surface: #30312e;
+  --color-inverse-on-surface: #f2f1ec;
+  --color-outline: #8b716c;
+  --color-outline-variant: #dec0ba;
+
+  --font-display-lg: var(--font-libre-caslon), serif;
+  --font-display-lg-mobile: var(--font-libre-caslon), serif;
+  --font-headline-md: var(--font-libre-caslon), serif;
+  --font-eyebrow: var(--font-space-mono), monospace;
+  --font-stats-mono: var(--font-space-mono), monospace;
+  --font-label-caps: var(--font-space-mono), monospace;
+
+  --text-display-lg--font-weight: 700;
+  --text-display-lg-mobile: 36px;
+  --text-display-lg-mobile--font-weight: 700;
+  --text-headline-md--line-height: 1.3;
+  --text-headline-md--font-weight: 600;
+  --text-body-md--line-height: 1.5;
+  --text-body-lg--line-height: 1.6;
+
+  --spacing-section-gap: 80px;
+  --spacing-container-max: 1200px;
+}
+
+/* ---- MTN gold accent (2026 edition, nested inside the editions scope) ---- */
+[data-theme="gold"] {
+  --color-primary: #ffc300;
+  --color-primary-container: #ffc300;
+  --color-on-primary-container: #1b1c19;
+  --color-surface-tint: #ffc300;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
+    font-family: var(--font-body-md);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+/* ---- Icons ---- */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  vertical-align: middle;
+}
+
+/* ---- Home bespoke ---- */
+.hairline {
+  border: 1px solid rgba(27, 42, 74, 0.1);
+}
+.terracotta-rule {
+  height: 1px;
+  background-color: #8f4c37;
+  opacity: 0.3;
+}
+.block-shadow-hover:hover {
+  border-width: 1.5px;
+  box-shadow: 4px 4px 0px rgba(201, 123, 99, 0.1);
+}
+.link-underline {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+/* ---- Editions bespoke ---- */
+.hairline-border,
+.editorial-border {
+  border: 1px solid rgba(13, 35, 80, 0.15);
+}
+.edition-row-border {
+  border-bottom: 1px solid rgba(139, 113, 108, 0.15);
+}
+.editorial-row .year-text {
+  transition: transform 0.5s;
+}
+.editorial-row:hover .year-text {
+  transform: translateX(8px);
+}
+.bg-clay-tint {
+  background-color: rgba(161, 57, 36, 0.08);
+}
+.hover-lift {
+  transition:
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 4px 12px rgba(13, 35, 80, 0.08);
+}
+
+/* ---- Scroll reveal (ported from the mockups' IntersectionObserver script) ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
