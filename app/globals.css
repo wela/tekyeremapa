@@ -227,6 +227,13 @@
   }
 }
 
+/* ---- Unified navbar: always Home navy + Fraunces brand, regardless of page theme ---- */
+.topnav {
+  --color-primary: #041534;
+  --color-primary-container: #1b2a4a;
+  --font-headline-md: var(--font-fraunces), serif;
+}
+
 /* ---- Icons ---- */
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;

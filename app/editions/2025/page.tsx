@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function Edition2025Page() {
   return (
     <div className="selection:bg-primary-fixed selection:text-on-primary-fixed">
-      <TopNav variant="edition-2025" />
+      <TopNav />
       <main className="pt-20">
         <Reveal>
           <Hero2025 />

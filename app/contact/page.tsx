@@ -23,7 +23,7 @@ export default function ContactPage() {
         data-theme="contact"
         className="selection:bg-primary-fixed selection:text-on-primary-fixed"
       >
-        <TopNav variant="contact" />
+        <TopNav />
         <main className="pt-32 pb-section-gap">
           <ContactHero />
           <ContactInfo />

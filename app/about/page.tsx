@@ -21,7 +21,7 @@ export default function AboutPage() {
       className="min-h-screen bg-background text-on-background font-body-md text-body-md"
     >
       <div data-theme="about">
-        <TopNav variant="about" />
+        <TopNav />
         <main className="mt-[72px]">
           <AboutHero />
           <LeadProfile />

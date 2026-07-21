@@ -13,8 +13,8 @@ import HomeFooter from "@/components/home/HomeFooter";
 export default function HomePage() {
   return (
     <>
-      <TopNav variant="home" />
-      <main>
+      <TopNav />
+      <main className="mt-[72px]">
         <Hero />
         <MissionGrid />
         <WhyItMatters />

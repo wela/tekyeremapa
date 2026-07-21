@@ -22,7 +22,7 @@ export default function Edition2026Page() {
       data-theme="gold"
       className="overflow-x-hidden selection:bg-primary/30"
     >
-      <TopNav variant="edition-2026" />
+      <TopNav />
       <main className="pt-20">
         <Reveal>
           <Hero2026 />

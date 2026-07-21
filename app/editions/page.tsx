@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function EditionsIndexPage() {
   return (
     <>
-      <TopNav variant="editions-index" />
+      <TopNav />
       <main className="pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <EditionsHeader />
         <section>
