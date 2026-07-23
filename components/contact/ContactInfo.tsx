@@ -10,16 +10,19 @@ export default function ContactInfo() {
               <span className="font-label-caps text-label-caps text-primary block mb-2">
                 EMAIL
               </span>
-              <span className="font-headline-md text-headline-md text-secondary lowercase break-all">
-                hello@tekyeremapa.org
-              </span>
+              <a
+                href="mailto:hcidcsug@gmail.com"
+                className="font-headline-md text-headline-md text-secondary lowercase break-all hover:text-primary transition-colors"
+              >
+                hcidcsug@gmail.com
+              </a>
             </div>
             <div className="hairline-rule pb-4">
               <span className="font-label-caps text-label-caps text-primary block mb-2">
                 LAB
               </span>
               <span className="font-body-lg text-body-lg text-secondary">
-                CS Innovation Hub
+                HCI Lab, Department of Computer Science
               </span>
             </div>
             <div className="hairline-rule pb-4">

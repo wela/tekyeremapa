@@ -11,7 +11,7 @@ import AboutFooter from "@/components/about/AboutFooter";
 export const metadata: Metadata = {
   title: "About | Tɛkyerɛma Pa Hackathon",
   description:
-    "Meet the HCI Lab at the University of Ghana — the multidisciplinary team of researchers, developers, and designers behind the Tɛkyerɛma Pa hackathon.",
+    "Meet the HCI Lab at the University of Ghana.",
 };
 
 export default function AboutPage() {

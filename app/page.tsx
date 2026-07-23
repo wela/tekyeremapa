@@ -21,7 +21,6 @@ export default function HomePage() {
         <ImpactStats />
         <SelectionFunnel />
         <PullQuote />
-        <WhatToExpect />
         <EditionsPreview />
         <JoinCommunity />
       </main>

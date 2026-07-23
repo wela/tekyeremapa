@@ -3,9 +3,9 @@
 /*
  * Design tokens.
  *
- * Default values = Home design system (navy + terracotta, EB Garamond / JetBrains Mono).
+ * Default values = Home design system (navy + UG blue, EB Garamond / JetBrains Mono).
  * The `[data-theme="editions"]` scope re-maps the same semantic tokens to the
- * Editions design system (clay red, Libre Caslon Text / Space Mono).
+ * Editions design system (UG blue, Libre Caslon Text / Space Mono).
  * The `[data-theme="gold"]` scope (nested inside editions on the 2026 page)
  * swaps the primary accent to MTN gold.
  */
@@ -21,15 +21,20 @@
   --color-on-primary-fixed-variant: #384668;
   --color-inverse-primary: #b7c6ee;
 
-  /* Secondary */
-  --color-secondary: #8f4c37;
+  /*
+   * Secondary = the accent role (eyebrows, outline CTAs, icons, badges, rules).
+   * Deliberately lighter than the #12305c structural navy: identical hue reads
+   * as the same colour, so separation has to come from lightness. #1e6bb8 sits
+   * 3.31:1 from --color-primary, more than the terracotta it replaced (2.80:1).
+   */
+  --color-secondary: #1e6bb8;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #ffa98f;
-  --color-on-secondary-container: #7a3b27;
-  --color-secondary-fixed: #ffdbd0;
-  --color-secondary-fixed-dim: #ffb59e;
-  --color-on-secondary-fixed: #3a0b00;
-  --color-on-secondary-fixed-variant: #723522;
+  --color-secondary-container: #8fbde8;
+  --color-on-secondary-container: #10416f;
+  --color-secondary-fixed: #d6e6f7;
+  --color-secondary-fixed-dim: #a5c8e9;
+  --color-on-secondary-fixed: #001c38;
+  --color-on-secondary-fixed-variant: #175490;
 
   /* Tertiary */
   --color-tertiary: #0f1722;
@@ -124,24 +129,25 @@
 
 /* ---- Editions design system ---- */
 [data-theme="editions"] {
-  --color-primary: #a13924;
+  --color-primary: #12305c;
   --color-on-primary: #ffffff;
-  --color-primary-container: #c25139;
-  --color-on-primary-container: #fffbff;
-  --color-primary-fixed: #ffdad3;
-  --color-primary-fixed-dim: #ffb4a4;
-  --color-on-primary-fixed: #3e0500;
-  --color-on-primary-fixed-variant: #842411;
-  --color-inverse-primary: #ffb4a4;
+  --color-primary-container: #1e4780;
+  --color-on-primary-container: #fbfcff;
+  --color-primary-fixed: #d3e0f3;
+  --color-primary-fixed-dim: #a4bcdf;
+  --color-on-primary-fixed: #000b1e;
+  --color-on-primary-fixed-variant: #11365e;
+  --color-inverse-primary: #a4bcdf;
 
-  --color-secondary: #4b5d8d;
+  /* Accent role — see the note on --color-secondary in @theme. */
+  --color-secondary: #1e6bb8;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #b5c8ff;
-  --color-on-secondary-container: #405382;
-  --color-secondary-fixed: #dae2ff;
-  --color-secondary-fixed-dim: #b3c5fc;
-  --color-on-secondary-fixed: #011946;
-  --color-on-secondary-fixed-variant: #324574;
+  --color-secondary-container: #8fbde8;
+  --color-on-secondary-container: #10416f;
+  --color-secondary-fixed: #d6e6f7;
+  --color-secondary-fixed-dim: #a5c8e9;
+  --color-on-secondary-fixed: #001c38;
+  --color-on-secondary-fixed-variant: #175490;
 
   --color-tertiary: #006767;
   --color-on-tertiary: #ffffff;
@@ -157,7 +163,7 @@
   --color-surface: #fbf9f4;
   --color-on-surface: #1b1c19;
   --color-surface-variant: #e4e2dd;
-  --color-on-surface-variant: #57423d;
+  --color-on-surface-variant: #444c5a;
   --color-surface-dim: #dbdad5;
   --color-surface-bright: #fbf9f4;
   --color-surface-container-lowest: #ffffff;
@@ -165,11 +171,11 @@
   --color-surface-container: #f0eee9;
   --color-surface-container-high: #eae8e3;
   --color-surface-container-highest: #e4e2dd;
-  --color-surface-tint: #a53b26;
+  --color-surface-tint: #12305c;
   --color-inverse-surface: #30312e;
   --color-inverse-on-surface: #f2f1ec;
-  --color-outline: #8b716c;
-  --color-outline-variant: #dec0ba;
+  --color-outline: #6d7686;
+  --color-outline-variant: #c2ccdb;
 
   --font-display-lg: var(--font-libre-caslon), serif;
   --font-display-lg-mobile: var(--font-libre-caslon), serif;
@@ -234,6 +240,48 @@
   --font-headline-md: var(--font-fraunces), serif;
 }
 
+/*
+ * ---- Dark footer ----
+ * Anchors every page on UG blue. Rather than restyling six footers, this
+ * re-points the same semantic tokens they already consume at a dark ramp, so
+ * `text-on-surface-variant`, `bg-surface-container` etc. keep working unchanged.
+ * Every foreground below clears AA on the #12305c ground (6.6:1 to 13.1:1).
+ */
+.footer-dark {
+  --color-surface: #1b3f6e;
+  --color-surface-container: #12305c;
+  --color-surface-container-low: #12305c;
+  --color-on-surface: #ffffff;
+  --color-on-surface-variant: #b7cfe8;
+  --color-outline: #6f93bf;
+  --color-outline-variant: #2f5586;
+
+  /* Brand + column headings read white; filled buttons invert to navy. */
+  --color-primary: #ffffff;
+  --color-on-primary: #12305c;
+  --color-primary-container: #d6e6f7;
+
+  /* The accent has to lighten on a dark ground — #1e6bb8 would sit at 2.1:1. */
+  --color-secondary: #8fbde8;
+  --color-on-secondary: #0b1f3d;
+
+  /* Home footer links use this role. */
+  --color-on-tertiary-fixed-variant: #b7cfe8;
+}
+/* The 2026 edition keeps its MTN gold accent on the navy ground (8.15:1). */
+[data-theme="gold"] .footer-dark {
+  --color-secondary: #ffc300;
+  --color-on-secondary: #12305c;
+  --color-primary-container: #ffc300;
+}
+.footer-dark .hairline,
+.footer-dark .hairline-border {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.footer-dark .accent-rule {
+  opacity: 1;
+}
+
 /* ---- Icons ---- */
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
@@ -244,14 +292,14 @@
 .hairline {
   border: 1px solid rgba(27, 42, 74, 0.1);
 }
-.terracotta-rule {
-  height: 1px;
-  background-color: #8f4c37;
-  opacity: 0.3;
+.accent-rule {
+  height: 2px;
+  background-color: var(--color-secondary);
+  opacity: 0.7;
 }
 .block-shadow-hover:hover {
   border-width: 1.5px;
-  box-shadow: 4px 4px 0px rgba(201, 123, 99, 0.1);
+  box-shadow: 4px 4px 0px rgba(30, 107, 184, 0.15);
 }
 .link-underline {
   text-decoration: underline;
@@ -265,7 +313,7 @@
   border: 1px solid rgba(13, 35, 80, 0.15);
 }
 .edition-row-border {
-  border-bottom: 1px solid rgba(139, 113, 108, 0.15);
+  border-bottom: 1px solid rgba(18, 48, 92, 0.15);
 }
 .hairline-rule {
   border-bottom: 1px solid rgba(13, 35, 80, 0.15);
@@ -285,8 +333,8 @@
 .editorial-row:hover .year-text {
   transform: translateX(8px);
 }
-.bg-clay-tint {
-  background-color: rgba(161, 57, 36, 0.08);
+.bg-primary-tint {
+  background-color: rgba(18, 48, 92, 0.08);
 }
 .hover-lift {
   transition:

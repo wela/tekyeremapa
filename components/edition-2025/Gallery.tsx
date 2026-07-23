@@ -1,64 +1,145 @@
-import Image from "next/image";
+"use client";
 
-export default function Gallery() {
+import { useCallback, useEffect, useState } from "react";
+import ImageWithFallback from "@/components/shared/ImageWithFallback";
+import Icon from "@/components/shared/Icon";
+import type { GalleryImage } from "@/lib/edition-2025";
+
+const tilePlaceholder = (
+  <span className="absolute inset-0 flex items-center justify-center bg-surface-container-high">
+    <Icon name="image" className="text-3xl text-on-surface-variant opacity-40" />
+  </span>
+);
+
+export default function Gallery({ images }: { images: GalleryImage[] }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const count = images.length;
+
+  const close = useCallback(() => setOpenIndex(null), []);
+  const step = useCallback(
+    (delta: number) =>
+      setOpenIndex((current) =>
+        current === null ? current : (current + delta + count) % count,
+      ),
+    [count],
+  );
+
+  // Keyboard nav + lock background scroll while the lightbox is open.
+  useEffect(() => {
+    if (openIndex === null) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") close();
+      if (event.key === "ArrowRight") step(1);
+      if (event.key === "ArrowLeft") step(-1);
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [openIndex, close, step]);
+
+  if (count === 0) return null;
+
+  const active = openIndex === null ? null : images[openIndex];
+
   return (
     <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap">
       <h2 className="font-headline-md text-headline-md mb-8">Edition Gallery</h2>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[300px]">
-        <div className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl hairline-border">
-          <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_LJWvMglivOnB3q2cjwr8lFhAEQB8rWb888OBm_xsF42eTrObm0jO1rrkH54aHDohyhvNtE1x7XseRY_OimwidhUbjey2J1o5pabHw1TQniuU3jMm7govYQ0FwQxR75xdY-rmV0_YwaD_8ctP3tAImiIR7gn3Pky-Iw8oADup-LOPhLqKBHq2RjYYjJBpQLINvKuE3BV9bd6P-1jLFu_6TOCme2x8bOQJo6oidiCVco-wr5VrlcXxTd8mQcEh9GzG-nH0zK0oA1te"
-            alt="Wide-angle view of a vibrant hackathon workspace with teams collaborating over laptops and whiteboards"
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/60 to-transparent text-white">
-            <p className="font-label-caps text-xs">UG HCI Lab, Accra</p>
-            <p className="font-body-md">
-              Collaboration in progress during the midnight sprint.
-            </p>
-          </div>
+
+      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        {images.map((image, index) => (
+          <li key={image.src}>
+            <button
+              type="button"
+              onClick={() => setOpenIndex(index)}
+              aria-label={`Open image ${index + 1}: ${image.alt}`}
+              className="group relative block w-full aspect-square overflow-hidden rounded-xl hairline-border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+            >
+              <ImageWithFallback
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                fallback={tilePlaceholder}
+              />
+              {image.caption && (
+                <span className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/60 to-transparent text-white font-body-md text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                  {image.caption}
+                </span>
+              )}
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      {active && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={active.alt}
+          onClick={close}
+          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 md:p-12"
+        >
+          <button
+            type="button"
+            onClick={close}
+            aria-label="Close gallery"
+            className="absolute top-4 right-4 text-white/80 hover:text-white p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            <Icon name="close" className="text-3xl" />
+          </button>
+
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              step(-1);
+            }}
+            aria-label="Previous image"
+            className="absolute left-2 md:left-6 text-white/80 hover:text-white p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            <Icon name="chevron_left" className="text-4xl" />
+          </button>
+
+          <figure
+            onClick={(event) => event.stopPropagation()}
+            className="relative w-full max-w-5xl h-full max-h-[80vh] flex flex-col items-center justify-center gap-4"
+          >
+            <div className="relative w-full flex-grow">
+              <ImageWithFallback
+                src={active.src}
+                alt={active.alt}
+                fill
+                sizes="100vw"
+                className="object-contain"
+                fallback={
+                  <span className="absolute inset-0 flex items-center justify-center text-white/60 font-body-md">
+                    Image unavailable
+                  </span>
+                }
+              />
+            </div>
+            <figcaption className="text-white/80 font-body-md text-sm text-center">
+              {active.caption ?? active.alt} · {openIndex! + 1} / {count}
+            </figcaption>
+          </figure>
+
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              step(1);
+            }}
+            aria-label="Next image"
+            className="absolute right-2 md:right-6 text-white/80 hover:text-white p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            <Icon name="chevron_right" className="text-4xl" />
+          </button>
         </div>
-        <div className="relative group overflow-hidden rounded-xl hairline-border">
-          <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiYe04VxDTgh-tLGIR7FnFQwnoXEpq6Pw5Pe_jCrwP377i0kueoB3Xv1pFVupZaEu3oA_H5WiGQjoTjTl-dwBsbB1TyGAucDiMMgISYSYf8kQKYq51Za3D0CC1dRZXqRE7coBLaRQQj__qcUc72LPjKw76QMcp6W_dzPxzr0WHE_yE9a9H7BlnwNxVPlhHBTLyn1fhNEGwunJNjNjL43TK00eI-zITV9GZRhwQUkWfOfgC88f8LgQwx-eGFfMcmSQWHcAE5cre2WHc"
-            alt="Close-up of hands working on a hardware circuit board with colorful wires"
-            fill
-            sizes="(max-width: 768px) 100vw, 25vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent text-white">
-            <p className="font-body-md text-sm">Haptic prototyping.</p>
-          </div>
-        </div>
-        <div className="relative group overflow-hidden rounded-xl hairline-border">
-          <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg9tG5f4ZRDjibJrlTRz7DrSUKTR2Ktik6NDCXwWJpyTX8uKAk5zmgRSkek-82r0I6edWfcDbVfj4y8jVDhC1oGGciZ5QTwvw_-C5PDHS-571o5fxQ6dJwS0MCCXQE0-yNPB6J2q81KpUFEkpYvkkRZJG-Wswni6mS5Ssda50jjhj4rP-HDe03b59wnDR4iIKwkgk-Zw_1v_WhJ9TFvj9tHaAb6VJXy6GvQWxcFoaBxbEpt0w3Vwjlyv31W5KfjqOMVUd8a4o0pWwP"
-            alt="A speaker presenting on stage at Demo Day with UI designs on a large screen"
-            fill
-            sizes="(max-width: 768px) 100vw, 25vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent text-white">
-            <p className="font-body-md text-sm">Demo Day pitches.</p>
-          </div>
-        </div>
-        <div className="md:col-span-2 relative group overflow-hidden rounded-xl hairline-border">
-          <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg3n4wPTUhAzYBHMUtChERDki5kkJtnD6Ge_-bs0RHiYMVV6zTzXuGCWH4D7me_kho6C3rBXnaLgvEoA-uwn0q-kjkWUQbwyFuOPBIo4dOzqA1-FwL6D_COlAAvu7ZmKpDEYhEuI4XT-On76GvIhGXSYeKSSGwGisjmwy7mEnYwX2DqTuGUmQQEvRc6arzwT6Kj7QI3_Y15FduYJqbQ7WQTGph0BKQAkyZiaSGddTh0QU8wHtP2EZcoItKF27RiRfkcBWnbe7gEHjc"
-            alt="A developer demonstrating a mobile app to a smiling community partner"
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent text-white">
-            <p className="font-body-md text-sm">
-              Testing real solutions with community partners.
-            </p>
-          </div>
-        </div>
-      </div>
+      )}
     </section>
   );
 }

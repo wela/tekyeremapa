@@ -1,67 +1,89 @@
 import Icon from "@/components/shared/Icon";
+import { edition2025, prizes } from "@/lib/edition-2025";
 
-const BADGES = [
-  { icon: "campaign", label: "Theme: Speech Impairment" },
-  { icon: "calendar_today", label: "August 12 - 18, 2025" },
-  { icon: "account_balance", label: "Host: UG HCI Lab" },
+const FACTS = [
+  { icon: "calendar_today", label: "Date", value: edition2025.finale.date },
+  { icon: "schedule", label: "Time", value: edition2025.finale.time },
+  { icon: "location_on", label: "Venue", value: edition2025.finale.venue },
 ];
 
 export default function Hero2025() {
   return (
     <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pt-16 pb-section-gap grid grid-cols-1 md:grid-cols-12 gap-gutter">
-      <div className="md:col-span-8">
-        <span className="font-stats-mono text-stats-mono text-primary uppercase tracking-widest block mb-4">
-          Edition Archive
+      <div className="md:col-span-7">
+        <span className="font-stats-mono text-stats-mono text-secondary uppercase tracking-widest block mb-4">
+          Edition Archive · {edition2025.duration}
         </span>
         <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-none">
-          2025: Breaking the Silence
+          Tɛkyerɛma Pa (Good Tongue) Hackathon 2025
         </h1>
-        <div className="flex flex-wrap gap-4 mb-8">
-          {BADGES.map((badge) => (
-            <div
-              key={badge.label}
-              className="bg-surface-container-high px-4 py-2 rounded-full flex items-center gap-2"
-            >
-              <Icon name={badge.icon} className="text-primary" />
-              <span className="font-label-caps text-label-caps uppercase">
-                {badge.label}
-              </span>
+        <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">
+          A challenge to design and develop innovative applications using
+          Automatic Speech Recognition (ASR) or Text-to-Speech (TTS)
+          technologies, to facilitate communication in Ghanaian languages for
+          individuals with speech impairment.
+        </p>
+
+        <dl className="flex flex-col sm:flex-row flex-wrap gap-x-10 gap-y-4 mb-10">
+          {FACTS.map((fact) => (
+            <div key={fact.label} className="flex items-start gap-3">
+              <Icon name={fact.icon} className="text-secondary mt-0.5" />
+              <div>
+                <dt className="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">
+                  {fact.label}
+                </dt>
+                <dd className="font-body-md text-on-surface max-w-[15rem]">
+                  {fact.value}
+                </dd>
+              </div>
             </div>
           ))}
-        </div>
-        <div className="max-w-2xl border-l-2 border-primary pl-8 py-2">
-          <p className="font-body-lg text-body-lg text-on-surface-variant italic mb-4">
-            &ldquo;For too long, innovation has bypassed the millions of voices
-            silenced by non-standard speech patterns, stuttering, and
-            dysarthria.&rdquo;
-          </p>
+        </dl>
+
+        <div className="max-w-2xl border-l-2 border-secondary pl-8 py-2">
           <p className="font-body-md text-body-md text-on-surface">
-            The 2025 hackathon addressed the critical exclusion of individuals
-            with speech-motor impairments from mainstream voice assistants and
-            communication tools. By focusing on indigenous Ghanaian languages
-            and localized speech therapy challenges, we aimed to democratize
-            the power of &lsquo;speaking&rsquo; in a digital-first world.
+            Delivered in partnership between the University of Ghana and
+            University College London, as part of AT2030 — a programme funded by
+            UK Aid and led by the Global Disability Innovation Hub. A curated{" "}
+            {edition2025.dataset} dataset supported every team&rsquo;s project.
           </p>
         </div>
       </div>
-      <div className="md:col-span-4 flex flex-col justify-end">
-        <div className="p-6 bg-surface-container rounded-xl hairline-border">
-          <span className="font-label-caps text-label-caps text-on-surface-variant block mb-4">
-            LEAD SPONSOR
-          </span>
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center hairline-border">
-              <Icon name="token" className="text-primary text-3xl" />
-            </div>
-            <div>
-              <p className="font-body-md font-bold text-on-surface">
-                AfroTech Systems
-              </p>
-              <p className="font-label-caps text-label-caps text-on-surface-variant">
-                Global Accessibility Partner
-              </p>
-            </div>
-          </div>
+
+      <div className="md:col-span-5 flex flex-col justify-end">
+        <div className="p-8 bg-surface-container rounded-xl hairline-border">
+          <h2 className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-6">
+            Prize Pool
+          </h2>
+          <ul className="space-y-4">
+            {prizes.map((prize, index) => (
+              <li
+                key={prize.place}
+                className={`flex items-baseline justify-between gap-4 ${
+                  index < prizes.length - 1
+                    ? "pb-4 border-b border-on-surface/10"
+                    : ""
+                }`}
+              >
+                <span
+                  className={`font-label-caps text-label-caps uppercase tracking-widest ${
+                    index === 0 ? "text-secondary" : "text-on-surface-variant"
+                  }`}
+                >
+                  {prize.place} place
+                </span>
+                <span
+                  className={`font-stats-mono ${
+                    index === 0
+                      ? "text-3xl text-secondary"
+                      : "text-2xl text-on-surface"
+                  }`}
+                >
+                  {prize.amount}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

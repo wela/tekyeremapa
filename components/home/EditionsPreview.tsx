@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { homeEditions } from "@/lib/editions";
+import { editions } from "@/lib/editions";
 
 export default function EditionsPreview() {
   return (
@@ -9,14 +9,21 @@ export default function EditionsPreview() {
           Editions
         </h2>
         <div className="flex flex-col gap-4">
-          {homeEditions.map((edition) => {
+          {editions.map((edition) => {
             const row = (
               <div className="bg-white p-6 rounded-xl hairline flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div className="font-headline-md text-[32px] text-primary md:w-32">
                   {edition.year}
                 </div>
-                <div className="flex-1 font-body-md text-on-surface-variant">
-                  {edition.description}
+                <div className="flex-1 flex flex-wrap gap-2">
+                  {edition.sponsors.map((sponsor) => (
+                    <span
+                      key={sponsor}
+                      className="px-3 py-1 rounded-full bg-[#E8EDF2] font-body-md text-on-surface-variant"
+                    >
+                      {sponsor}
+                    </span>
+                  ))}
                 </div>
                 {edition.status === "open" ? (
                   <div className="bg-secondary/10 text-secondary font-eyebrow px-4 py-1 rounded-full uppercase text-[10px]">

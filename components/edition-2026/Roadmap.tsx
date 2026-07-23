@@ -1,24 +1,34 @@
-const STEPS = [
+const PHASES = [
   {
-    number: "01",
-    title: "Call for Ideas",
-    dates: "Aug 1 — Sept 15",
-    text: "Submit your concept and team profile. Focus on accessibility and scale within the Ghanaian ecosystem.",
-    active: true,
+    phase: "Pre-Hackathon",
+    items: [
+      { activity: "Registration", date: "July 20 – August 10, 2026" },
+      {
+        activity: "Awareness Campaign & Team Outreach",
+        date: "August 3 – August 10, 2026",
+      },
+      { activity: "Online Bootcamp", date: "August 11 – 31, 2026" },
+      {
+        activity: "Ideation Sprint & Mentor Reviews",
+        date: "September 1 – October 23, 2026",
+      },
+    ],
   },
   {
-    number: "02",
-    title: "Hackathon Weekend",
-    dates: "Oct 12 — 14",
-    text: "48 hours of intense building, expert mentorship, and technical workshops at the UG campus.",
-    active: false,
+    phase: "Hackathon Week",
+    items: [
+      { activity: "In-person Mentoring", date: "October 26 – 29, 2026" },
+      { activity: "Grand Finale", date: "October 30, 2026", highlight: true },
+    ],
   },
   {
-    number: "03",
-    title: "The Grand Finale",
-    dates: "Oct 15",
-    text: "Pitch to industry leaders and MTN executives. Winners announced live at the gala event.",
-    active: false,
+    phase: "Post-Hackathon",
+    items: [
+      {
+        activity: "Post-Hackathon Follow-up",
+        date: "November 1 – December 10, 2026",
+      },
+    ],
   },
 ];
 
@@ -26,38 +36,51 @@ export default function Roadmap() {
   return (
     <section className="py-section-gap px-margin-mobile md:px-margin-desktop">
       <div className="max-w-container-max mx-auto">
-        <div className="flex flex-col gap-6 md:flex-row md:justify-between md:items-end mb-16">
-          <div className="max-w-xl">
-            <span className="font-stats-mono text-primary text-label-caps uppercase tracking-[0.2em]">
-              The Journey
-            </span>
-            <h2 className="font-headline-md text-headline-md mt-2">
-              Critical Dates &amp; Roadmap
-            </h2>
-          </div>
-          <a
-            href="#"
-            className="w-fit font-label-caps text-on-surface border-b-2 border-primary hover:text-primary transition-colors"
-          >
-            Download PDF Schedule
-          </a>
+        <div className="max-w-xl mb-16">
+          <span className="font-stats-mono text-primary text-label-caps uppercase tracking-[0.2em]">
+            The Journey
+          </span>
+          <h2 className="font-headline-md text-headline-md mt-2">
+            Timelines
+          </h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-gutter relative">
-          <div className="hidden md:block absolute top-12 left-0 w-full h-[1px] bg-on-surface/10 z-0" />
-          {STEPS.map((step) => (
-            <div key={step.number} className="relative z-10 group">
-              <div
-                className={`w-12 h-12 rounded-full flex items-center justify-center text-on-primary mb-6 ring-8 ring-surface ring-offset-0 ${
-                  step.active
-                    ? "bg-primary"
-                    : "bg-on-surface-variant transition-colors group-hover:bg-primary"
-                }`}
-              >
-                <span className="font-stats-mono">{step.number}</span>
-              </div>
-              <h3 className="font-headline-md text-[20px] mb-2">{step.title}</h3>
-              <p className="font-label-caps text-primary mb-4">{step.dates}</p>
-              <p className="text-on-surface-variant text-body-md">{step.text}</p>
+
+        <div className="flex flex-col gap-12">
+          {PHASES.map((phase) => (
+            <div
+              key={phase.phase}
+              className="grid grid-cols-1 md:grid-cols-12 gap-gutter"
+            >
+              <h3 className="md:col-span-3 font-label-caps text-label-caps text-primary uppercase tracking-[0.2em]">
+                {phase.phase}
+              </h3>
+              <ul className="md:col-span-9 border-t border-on-surface/15">
+                {phase.items.map((item) => (
+                  <li
+                    key={item.activity}
+                    className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-6 py-4 border-b border-on-surface/15"
+                  >
+                    <span
+                      className={`font-body-lg text-body-lg ${
+                        "highlight" in item && item.highlight
+                          ? "text-primary font-bold"
+                          : "text-on-surface"
+                      }`}
+                    >
+                      {item.activity}
+                    </span>
+                    <span
+                      className={`font-stats-mono text-stats-mono shrink-0 ${
+                        "highlight" in item && item.highlight
+                          ? "text-primary"
+                          : "text-on-surface-variant"
+                      }`}
+                    >
+                      {item.date}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

@@ -3,11 +3,11 @@ import Icon from "@/components/shared/Icon";
 import Reveal from "@/components/shared/Reveal";
 
 const FINALISTS = [
-  "Asase Ye Duru",
-  "Kasa-Kasa AI",
-  "Onyame Ne Hene",
-  "Ga-Shikpon",
-  "Ewe Connect",
+"Kasa Noma",
+"WhisperWave",
+"Twilight",
+"Kasayie",
+"Team Yada"
 ];
 
 const STAGES = [

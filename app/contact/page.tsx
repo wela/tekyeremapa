@@ -28,11 +28,11 @@ export default function ContactPage() {
           <ContactHero />
           <ContactInfo />
           <PartnerSection />
-          <InquirySection />
+          
           <AccessibilityNote />
         </main>
         <ContactFooter />
-      </div>
+      </div>w
     </div>
   );
 }

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer2026() {
   return (
-    <footer className="bg-surface-container border-t border-on-surface/15 w-full py-section-gap">
+    <footer className="footer-dark bg-surface-container w-full py-section-gap">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="md:col-span-4">
           <Link
@@ -73,21 +73,34 @@ export default function Footer2026() {
           </ul>
         </div>
         <div className="md:col-span-4">
-          <h5 className="font-label-caps text-on-surface mb-6 uppercase tracking-widest">
+          <h5
+            id="edition-2026-newsletter"
+            className="font-label-caps text-on-surface mb-6 uppercase tracking-widest"
+          >
             Newsletter
           </h5>
-          <div className="flex gap-2">
+          <form className="flex gap-2" aria-labelledby="edition-2026-newsletter">
+            <label htmlFor="edition-2026-email" className="sr-only">
+              Your email address
+            </label>
             <input
+              id="edition-2026-email"
+              name="email"
               type="email"
+              autoComplete="email"
+              required
               placeholder="Email address"
-              className="bg-surface border border-on-surface/15 focus:border-primary focus:outline-none rounded-lg flex-grow font-body-md px-3 py-2"
+              className="bg-surface text-on-surface placeholder:text-on-surface-variant border border-on-surface/25 focus:outline-none focus-visible:border-secondary focus-visible:ring-2 focus-visible:ring-secondary/50 rounded-lg flex-grow font-body-md px-3 py-2 transition-colors"
             />
-            <button className="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-caps">
+            <button
+              type="submit"
+              className="bg-secondary text-on-secondary px-4 py-2 rounded-lg font-label-caps hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary transition-opacity"
+            >
               Join
             </button>
-          </div>
+          </form>
         </div>
-        <div className="md:col-span-12 mt-12 pt-12 border-t border-on-surface/5">
+        <div className="md:col-span-12 mt-12 pt-12 border-t border-on-surface/15">
           <p className="text-on-surface-variant font-body-md opacity-80">
             © 2026 Tɛkyerɛma Pa Hackathon. Empowering voices through technology.
           </p>

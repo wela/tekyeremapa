@@ -4,7 +4,7 @@ import EditionsHeader from "@/components/editions/EditionsHeader";
 import EditionRow from "@/components/editions/EditionRow";
 import UpcomingDivider from "@/components/editions/UpcomingDivider";
 import EditionsFooter from "@/components/editions/EditionsFooter";
-import { editionRows } from "@/lib/editions";
+import { editions } from "@/lib/editions";
 
 export const metadata: Metadata = {
   title: "Editions | Tɛkyerɛma Pa Hackathon",
@@ -24,17 +24,17 @@ export default function EditionsIndexPage() {
               Year
             </div>
             <div className="col-span-7 font-label-caps text-label-caps uppercase">
-              Edition Theme
+              Sponsors
             </div>
             <div className="col-span-3 text-right font-label-caps text-label-caps uppercase">
               Status
             </div>
           </div>
-          {editionRows.map((edition) => (
+          {editions.map((edition) => (
             <EditionRow key={edition.year} edition={edition} />
           ))}
         </section>
-        <UpcomingDivider />
+        
       </main>
       <EditionsFooter />
     </>

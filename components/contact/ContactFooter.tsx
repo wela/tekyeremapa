@@ -3,12 +3,15 @@ import Icon from "@/components/shared/Icon";
 
 export default function ContactFooter() {
   return (
-    <footer className="w-full py-section-gap bg-surface-container border-t border-on-surface/15">
+    <footer className="footer-dark w-full py-section-gap bg-surface-container">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="md:col-span-4">
-          <div className="font-display-lg text-headline-md text-primary mb-6">
+          <Link
+            href="/"
+            className="inline-block font-display-lg text-headline-md text-primary mb-6"
+          >
             Tɛkyerɛma Pa
-          </div>
+          </Link>
           <p className="text-on-surface-variant font-body-md mb-8">
             Empowering voices through technology and linguistic innovation in
             the digital age.
@@ -63,24 +66,35 @@ export default function ContactFooter() {
           </ul>
         </div>
         <div className="md:col-span-3 md:col-start-10">
-          <h4 className="font-label-caps text-label-caps text-secondary mb-6">
+          <h4
+            id="contact-newsletter"
+            className="font-label-caps text-label-caps text-secondary mb-6"
+          >
             NEWSLETTER
           </h4>
-          <div className="flex gap-2">
+          <form className="flex gap-2" aria-labelledby="contact-newsletter">
+            <label htmlFor="contact-email" className="sr-only">
+              Your email address
+            </label>
             <input
-              className="bg-surface border border-secondary/15 rounded-lg px-3 py-2 text-sm w-full focus:outline-none focus:ring-1 focus:ring-primary"
+              id="contact-email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
               placeholder="Email"
-              type="text"
+              className="bg-surface text-on-surface placeholder:text-on-surface-variant border border-on-surface/25 rounded-lg px-3 py-2 text-sm w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:border-secondary transition-colors"
             />
             <button
-              className="bg-secondary text-white p-2 rounded-lg"
-              aria-label="Subscribe"
+              type="submit"
+              className="bg-secondary text-on-secondary p-2 rounded-lg hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-opacity"
             >
+              <span className="sr-only">Subscribe</span>
               <Icon name="send" className="text-sm" />
             </button>
-          </div>
+          </form>
         </div>
-        <div className="md:col-span-12 border-t border-on-surface/5 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="md:col-span-12 border-t border-on-surface/15 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <span className="font-label-caps text-label-caps text-on-surface-variant opacity-80">
             © 2026 Tɛkyerɛma Pa Hackathon. Empowering voices through technology.
           </span>

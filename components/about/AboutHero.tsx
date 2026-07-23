@@ -8,7 +8,7 @@ export default function AboutHero() {
           The team behind the hackathon
         </p>
         <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg max-w-4xl mb-8">
-          HCI Lab, University of Ghana: Pioneers in Human-Centered AI
+          HCI Lab, University of Ghana
         </h1>
         <hr className="border-primary opacity-20 mb-8 max-w-xs" />
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start mb-16">
@@ -20,7 +20,7 @@ export default function AboutHero() {
               </span>
               . We are a multidisciplinary team of researchers, developers, and
               designers working at the intersection of technology and human
-              behavior. <a className="editorial-link" href="#">Learn about our publications →</a>
+              behavior. <a className="editorial-link" href="https://linktr.ee/DCSHCILAB">Learn about our publications →</a>
             </p>
           </div>
         </div>

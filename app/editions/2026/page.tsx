@@ -4,6 +4,7 @@ import Reveal from "@/components/shared/Reveal";
 import Hero2026 from "@/components/edition-2026/Hero2026";
 import StatsBand from "@/components/edition-2026/StatsBand";
 import Roadmap from "@/components/edition-2026/Roadmap";
+import Prizes from "@/components/edition-2026/Prizes";
 import ImpactTracks from "@/components/edition-2026/ImpactTracks";
 import MentorsGrid from "@/components/edition-2026/MentorsGrid";
 import RetroGallery from "@/components/edition-2026/RetroGallery";
@@ -34,11 +35,14 @@ export default function Edition2026Page() {
           <Roadmap />
         </Reveal>
         <Reveal>
-          <ImpactTracks />
+          <Prizes />
         </Reveal>
         <Reveal>
-          <MentorsGrid />
+          <ImpactTracks />
         </Reveal>
+        {/* <Reveal>
+          <MentorsGrid />
+        </Reveal> */}
         <Reveal>
           <RetroGallery />
         </Reveal>

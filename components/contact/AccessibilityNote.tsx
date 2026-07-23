@@ -14,9 +14,12 @@ export default function AccessibilityNote() {
           We strive to make Tɛkyerɛma Pa inclusive for everyone. If you
           encounter any barriers on this site or have suggestions for improved
           usability, please email us directly at{" "}
-          <span className="text-primary font-semibold">
-            accessibility@tekyeremapa.org
-          </span>
+          <a
+            href="mailto:hcidcsug@gmail.com"
+            className="text-primary font-semibold hover:underline"
+          >
+            hcidcsug@gmail.com
+          </a>
           .
         </p>
       </div>
