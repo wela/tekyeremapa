@@ -1,4 +1,4 @@
 allowBuilds:
-  '@ampproject/toolbox-optimizer': false
-  es5-ext: false
+  # sharp powers next/image optimisation, so its install script must run.
+  sharp: true
   unrs-resolver: false
