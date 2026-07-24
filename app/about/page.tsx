@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TopNav from "@/components/shared/TopNav";
 import AboutHero from "@/components/about/AboutHero";
 import LeadProfile from "@/components/about/LeadProfile";
-import TeamGrid from "@/components/about/TeamGrid";
+import LabLink from "@/components/about/LabLink";
 import CandidStrip from "@/components/about/CandidStrip";
 import LabContributions from "@/components/about/LabContributions";
 import ClosingSection from "@/components/about/ClosingSection";
@@ -25,7 +25,7 @@ export default function AboutPage() {
         <main className="mt-[72px]">
           <AboutHero />
           <LeadProfile />
-          <TeamGrid />
+          <LabLink />
           <CandidStrip />
           <LabContributions />
           <ClosingSection />

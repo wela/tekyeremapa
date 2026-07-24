@@ -2,7 +2,7 @@
  * Content for the 2025 edition (/editions/2025).
  *
  * Sourced from the hackathon flyers and the organisers' copy. Anything not yet
- * supplied is marked TODO rather than invented — see `finalistTeams` and
+ * supplied is marked TODO rather than invented, see `finalistTeams` and
  * `materials`.
  */
 
@@ -134,7 +134,7 @@ export const mentorTracks: MentorTrack[] = [
       {
         name: "Preetham Nagaraj",
         role: "UX/UI Designer",
-        bio: "Currently pursuing a PhD at UCL under the supervision of Prof. Catherine Holloway. He holds a double master's degree — an MSc in Computer Science from the University of Illinois at Chicago and an MSc in Human-Computer Interaction from UCL. Before starting his PhD, Preetham worked as a UX designer for over a decade across the US, the UK, and India, in fields such as robotics, biotechnology, and advertising.",
+        bio: "Currently pursuing a PhD at UCL under the supervision of Prof. Catherine Holloway. He holds a double master's degree, an MSc in Computer Science from the University of Illinois at Chicago and an MSc in Human-Computer Interaction from UCL. Before starting his PhD, Preetham worked as a UX designer for over a decade across the US, the UK, and India, in fields such as robotics, biotechnology, and advertising.",
         image: "/mentors/2025/preetham-nagaraj.jpg",
       },
     ],
@@ -254,7 +254,7 @@ export interface Sponsor {
 
 /*
  * Drop each logo into /public/partners/ using the filename in `logo` (SVG or a
- * transparent PNG works best). The path's extension doesn't have to be exact —
+ * transparent PNG works best). The path's extension doesn't have to be exact,
  * publicImage() matches the basename against any image extension present. Until
  * a file exists, the sponsor's name shows as text automatically.
  */
@@ -287,7 +287,7 @@ export interface Material {
 
 /*
  * TODO: drop the two .pptx files into /public/materials/ using these exact
- * filenames. The second deck's real title was not supplied — rename `title`
+ * filenames. The second deck's real title was not supplied, rename `title`
  * and `file` together once you have it.
  */
 export const materials: Material[] = [
@@ -307,12 +307,12 @@ export interface GalleryImage {
   caption?: string;
 }
 
-// Gallery photos are auto-discovered from /public/gallery/2025/ at build time —
+// Gallery photos are auto-discovered from /public/gallery/2025/ at build time,
 // see getGalleryImages() in lib/gallery.ts. Just drop files in that folder.
 
 export interface TeamMember {
   name: string;
-  /** e.g. "Team lead", "ML engineer" — optional. */
+  /** e.g. "Team lead", "ML engineer", optional. */
   role?: string;
   /**
    * Individual headshot under /public/participants/2025/. Falls back to the
@@ -328,7 +328,7 @@ export interface FinalistTeam {
   idea: string;
   /** Longer description of what they built. */
   description?: string;
-  /** Placement, e.g. "1st" — omit for finalists that did not place. */
+  /** Placement, e.g. "1st", omit for finalists that did not place. */
   placement?: string;
   /** Each participant, with their own individual photo. */
   members: TeamMember[];
@@ -341,69 +341,59 @@ export interface FinalistTeam {
 }
 
 /*
- * The five finalist teams. Replace each placeholder in place — keep the entry,
- * fill in the real `name`, `idea`, `description`, `members`, and `placement`.
- * For photos, drop an image in /public/teams/2025/ and set `image` +
- * `imageAlt`. Cards with no `image` show a "Photo to come" panel automatically.
+ * The five finalist teams. `idea` holds the project title (shown as the
+ * subtitle) and `description` the full write-up. `members` is empty until member
+ * names are supplied, drop individual photos in /public/participants/2025/ and
+ * add { name, role?, image } entries. `groupPhoto` is an optional finale-day
+ * team photo under /public/teams/2025/.
  */
-function placeholderMembers(team: number): TeamMember[] {
-  return Array.from({ length: 3 }, (_, index) => {
-    const n = index + 1;
-    return {
-      name: `Member ${n} name`,
-      role: index === 0 ? "Team lead" : "Team member",
-      image: `/participants/2025/team-${team}-member-${n}.jpg`,
-    };
-  });
-}
-
 export const finalistTeams: FinalistTeam[] = [
   {
-    name: "Finalist Team 1",
-    idea: "One-line summary of the team's solution.",
+    name: "Kasa Noma",
+    idea: "ASR Assistant for Speech-Impaired Individuals",
     description:
-      "A fuller description of what the team built and the problem it addresses.",
+      "Kasa Noma created an ASR assistant for speech-impaired individuals. It functions like a personal messaging assistant that can be integrated into social apps like Telegram, allowing users to speak and receive corrected text transcripts, enhanced audio, or translated speech that can be shared seamlessly.",
     placement: "1st",
-    members: placeholderMembers(1),
-    groupPhoto: "/teams/2025/team-1-finale.jpg",
-    groupPhotoAlt: "Finalist Team 1 at the 2025 grand finale",
+    members: [],
+    groupPhoto: "/teams/2025/kasa-noma-finale.jpg",
+    groupPhotoAlt: "The Kasa Noma team at the 2025 grand finale",
   },
   {
-    name: "Finalist Team 2",
-    idea: "One-line summary of the team's solution.",
+    name: "WhisperWave",
+    idea: "Interactive 3D Speech Therapy App",
     description:
-      "A fuller description of what the team built and the problem it addresses.",
+      "WhisperWave built an interactive 3D speech therapy app for children with speech impairments. It uses a Twi-trained AI model, voice recognition, and a friendly avatar to guide kids through oral motor exercises, flashcards, and conversation practice, making therapy fun, local, and accessible.",
     placement: "2nd",
-    members: placeholderMembers(2),
-    groupPhoto: "/teams/2025/team-2-finale.jpg",
-    groupPhotoAlt: "Finalist Team 2 at the 2025 grand finale",
+    members: [],
+    groupPhoto: "/teams/2025/whisperwave-finale.jpg",
+    groupPhotoAlt: "The WhisperWave team at the 2025 grand finale",
   },
   {
-    name: "Finalist Team 3",
-    idea: "One-line summary of the team's solution.",
+    name: "Twilight",
+    idea: "ASR Assistant",
     description:
-      "A fuller description of what the team built and the problem it addresses.",
+      "Twilight built an AI-powered ASR platform tailored for Twi-speaking users with speech impairment. It transcribes impaired speech into readable text, enabling real-time communication in clinical and everyday settings, with built-in therapy tools to support long-term speech improvement.",
     placement: "3rd",
-    members: placeholderMembers(3),
-    groupPhoto: "/teams/2025/team-3-finale.jpg",
-    groupPhotoAlt: "Finalist Team 3 at the 2025 grand finale",
+    members: [],
+    groupPhoto: "/teams/2025/twilight-finale.jpg",
+    groupPhotoAlt: "The Twilight team at the 2025 grand finale",
   },
   {
-    name: "Finalist Team 4",
-    idea: "One-line summary of the team's solution.",
+    name: "Kasayie",
+    idea: "ASR Mobile Application",
     description:
-      "A fuller description of what the team built and the problem it addresses.",
-    members: placeholderMembers(4),
-    groupPhoto: "/teams/2025/team-4-finale.jpg",
-    groupPhotoAlt: "Finalist Team 4 at the 2025 grand finale",
+      "Kasayie is a mobile application with a minimalistic interface inspired by co-design. It uses a fine-tuned ASR model to transcribe impaired Twi speech into standard Twi text. With latency reduction in mind, its backend system ensures smooth transcription with minimal latency.",
+    members: [],
+    groupPhoto: "/teams/2025/kasayie-finale.jpg",
+    groupPhotoAlt: "The Kasayie team at the 2025 grand finale",
   },
   {
-    name: "Finalist Team 5",
-    idea: "One-line summary of the team's solution.",
+    name: "Team Yada",
+    idea: "ASR Mobile Application",
     description:
-      "A fuller description of what the team built and the problem it addresses.",
-    members: placeholderMembers(5),
-    groupPhoto: "/teams/2025/team-5-finale.jpg",
-    groupPhotoAlt: "Finalist Team 5 at the 2025 grand finale",
+      "Yada built an AI-powered mobile app that helps individuals with speech impairments in Ghana communicate using local languages like Akan. It features speech-to-text, text-to-speech, and adaptive interfaces, enabling inclusive, culturally relevant, and accessible communication across daily life.",
+    members: [],
+    groupPhoto: "/teams/2025/yada-finale.jpg",
+    groupPhotoAlt: "The Yada team at the 2025 grand finale",
   },
 ];

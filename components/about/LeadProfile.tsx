@@ -1,4 +1,6 @@
-import Image from "next/image";
+import ImageWithFallback from "@/components/shared/ImageWithFallback";
+import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
+import { publicImage } from "@/lib/assets";
 
 const FOCUS_AREAS = [
   "Persuasive Tech",
@@ -13,12 +15,13 @@ export default function LeadProfile() {
       <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
         <div className="md:col-span-5">
           <div className="relative rounded-[14px] overflow-hidden aspect-[3/4]">
-            <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIlUaYX0tSbB9r2uFNXAKAMDCx-o8ct35UeaMRyDkME3cV4ghHaGnNapKYZxpqjSRt5zmf5UmZnWqiCWy08FTHsF6OW8beIqd5lSYq3q0dM1pJjajWlt0t5ewIVJlL3YyLvtSchWNsQ4OcaalRcfOVDodnrfhg4or7XWurC4SsuE0chytrJlvwRNKzs7ThSoibzlfTQ4ZdKh03fOgTMuaGKR_8m_D3VNlwbo1RIpKvlGxzHivv84F9RpiY1idw0DMznZtxruJw9g_t"
-              alt="Portrait of Prof. Isaac Wiafe in a dark academic suit against a softly lit studio background"
+            <ImageWithFallback
+              src={publicImage("/about/lead-isaac-wiafe.png")}
+              alt="Portrait of Prof. Isaac Wiafe"
               fill
               sizes="(max-width: 768px) 100vw, 40vw"
               className="object-cover"
+              fallback={<ImagePlaceholder icon="person" label="Lead photo" />}
             />
           </div>
         </div>

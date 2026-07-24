@@ -1,10 +1,13 @@
-import Image from "next/image";
 import Icon from "@/components/shared/Icon";
+import ImageWithFallback from "@/components/shared/ImageWithFallback";
+import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
+import { publicImage } from "@/lib/assets";
 
 const FACTS = [
   { label: "Host", value: "University of Ghana" },
   { label: "Sponsor", value: "MTN Ghana" },
-  { label: "Timeline", value: "Oct 12 — 15, 2026" },
+  { label: "Timeline", value: "Jul 20 to Oct 30, 2026" },
+  { label: "Grand Finale", value: "Oct 30, 2026" },
 ];
 
 export default function Hero2026() {
@@ -44,12 +47,13 @@ export default function Hero2026() {
         <div className="md:col-span-5 relative">
           <div className="aspect-square bg-surface-container rounded-xl overflow-hidden editorial-border p-4 relative group">
             <div className="relative w-full h-full rounded-lg overflow-hidden">
-              <Image
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXh1ek54qtqUc1WIr_g659WYwMwIyBKWqcMfw9XW9CKNlAv2rK3GGJTOpZbZrLDPIfwgyDylDZ4xKuRaWF4Kd-o5oFO1t3AvUmSMVZGNB59fHItv02RHhnMLm8t7WBhPQKYL0gBwmUWmYxVKJh-Dxph13N9ckR1HewTvXC-zntuerQGAvGR7FOBI6buoBpjNbzD72Tjnw9b5TxGSVW2PkanMMuFir5agWLziNvtSCFPJDiNxsnO0lwtDnCdTlMXMNvHSIV0Vp-ydQI"
-                alt="A modern university auditorium in Accra filled with young developers collaborating around laptops"
+              <ImageWithFallback
+                src={publicImage("/edition-2026/hero.jpg")}
+                alt="Tɛkyerɛma Pa Hackathon 2026"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover"
+                fallback={<ImagePlaceholder label="Hero photo" />}
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />

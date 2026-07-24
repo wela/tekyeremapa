@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import ImageWithFallback from "@/components/shared/ImageWithFallback";
 import Icon from "@/components/shared/Icon";
 import type { GalleryImage } from "@/lib/edition-2025";
@@ -46,7 +47,11 @@ export default function Gallery({ images }: { images: GalleryImage[] }) {
 
   return (
     <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-section-gap">
-      <h2 className="font-headline-md text-headline-md mb-8">Edition Gallery</h2>
+      <h2 className="font-headline-md text-headline-md mb-2">Edition Gallery</h2>
+      <p className="font-body-md text-on-surface-variant mb-8">
+        {count} photos from the 2025 edition. Select any photo to view it full
+        size.
+      </p>
 
       <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {images.map((image, index) => (
@@ -54,7 +59,7 @@ export default function Gallery({ images }: { images: GalleryImage[] }) {
             <button
               type="button"
               onClick={() => setOpenIndex(index)}
-              aria-label={`Open image ${index + 1}: ${image.alt}`}
+              aria-label={`Open image ${index + 1} of ${count}`}
               className="group relative block w-full aspect-square overflow-hidden rounded-xl hairline-border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
             >
               <ImageWithFallback
@@ -65,81 +70,83 @@ export default function Gallery({ images }: { images: GalleryImage[] }) {
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                 fallback={tilePlaceholder}
               />
-              {image.caption && (
-                <span className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/60 to-transparent text-white font-body-md text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                  {image.caption}
-                </span>
-              )}
             </button>
           </li>
         ))}
       </ul>
 
-      {active && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={active.alt}
-          onClick={close}
-          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 md:p-12"
-        >
-          <button
-            type="button"
+      {/*
+       * Rendered through a portal so the fixed overlay escapes the <Reveal>
+       * wrapper's CSS transform, which would otherwise become its containing
+       * block and push it off screen.
+       */}
+      {active &&
+        createPortal(
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={active.alt}
             onClick={close}
-            aria-label="Close gallery"
-            className="absolute top-4 right-4 text-white/80 hover:text-white p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 md:p-12"
           >
-            <Icon name="close" className="text-3xl" />
-          </button>
+            <button
+              type="button"
+              onClick={close}
+              aria-label="Close gallery"
+              className="absolute top-4 right-4 text-white/80 hover:text-white p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              <Icon name="close" className="text-3xl" />
+            </button>
 
-          <button
-            type="button"
-            onClick={(event) => {
-              event.stopPropagation();
-              step(-1);
-            }}
-            aria-label="Previous image"
-            className="absolute left-2 md:left-6 text-white/80 hover:text-white p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            <Icon name="chevron_left" className="text-4xl" />
-          </button>
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                step(-1);
+              }}
+              aria-label="Previous image"
+              className="absolute left-2 md:left-6 text-white/80 hover:text-white p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              <Icon name="chevron_left" className="text-4xl" />
+            </button>
 
-          <figure
-            onClick={(event) => event.stopPropagation()}
-            className="relative w-full max-w-5xl h-full max-h-[80vh] flex flex-col items-center justify-center gap-4"
-          >
-            <div className="relative w-full flex-grow">
-              <ImageWithFallback
-                src={active.src}
-                alt={active.alt}
-                fill
-                sizes="100vw"
-                className="object-contain"
-                fallback={
-                  <span className="absolute inset-0 flex items-center justify-center text-white/60 font-body-md">
-                    Image unavailable
-                  </span>
-                }
-              />
-            </div>
-            <figcaption className="text-white/80 font-body-md text-sm text-center">
-              {active.caption ?? active.alt} · {openIndex! + 1} / {count}
-            </figcaption>
-          </figure>
+            <figure
+              onClick={(event) => event.stopPropagation()}
+              className="relative w-full max-w-5xl h-full max-h-[80vh] flex flex-col items-center justify-center gap-4"
+            >
+              <div className="relative w-full flex-grow">
+                <ImageWithFallback
+                  src={active.src}
+                  alt={active.alt}
+                  fill
+                  sizes="100vw"
+                  className="object-contain"
+                  fallback={
+                    <span className="absolute inset-0 flex items-center justify-center text-white/60 font-body-md">
+                      Image unavailable
+                    </span>
+                  }
+                />
+              </div>
+              <figcaption className="text-white/80 font-body-md text-sm text-center">
+                {openIndex! + 1} / {count}
+              </figcaption>
+            </figure>
 
-          <button
-            type="button"
-            onClick={(event) => {
-              event.stopPropagation();
-              step(1);
-            }}
-            aria-label="Next image"
-            className="absolute right-2 md:right-6 text-white/80 hover:text-white p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            <Icon name="chevron_right" className="text-4xl" />
-          </button>
-        </div>
-      )}
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                step(1);
+              }}
+              aria-label="Next image"
+              className="absolute right-2 md:right-6 text-white/80 hover:text-white p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              <Icon name="chevron_right" className="text-4xl" />
+            </button>
+          </div>,
+          document.body,
+        )}
     </section>
   );
 }

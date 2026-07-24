@@ -14,6 +14,9 @@ export default function Reveal({ children, className }: RevealProps) {
     const el = ref.current;
     if (!el) return;
 
+    // threshold must stay 0: a section taller than the viewport (the 122-photo
+    // gallery is ~10,000px) can never reach a fractional threshold, so anything
+    // above 0 would leave it stuck at opacity 0 forever.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -23,7 +26,7 @@ export default function Reveal({ children, className }: RevealProps) {
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0, rootMargin: "0px 0px -40px 0px" },
     );
 
     observer.observe(el);

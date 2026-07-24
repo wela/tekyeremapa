@@ -40,11 +40,11 @@ function MemberAvatar({ member }: { member: TeamMember }) {
           }
         />
       </div>
-      <p className="font-body-md text-xs font-semibold text-on-surface mt-2 leading-tight">
+      <p className="font-body-md text-sm font-semibold text-on-surface mt-2 leading-tight">
         {member.name}
       </p>
       {member.role && (
-        <p className="font-body-md text-[11px] text-on-surface-variant leading-tight">
+        <p className="font-body-md text-[14px] text-on-surface-variant leading-tight">
           {member.role}
         </p>
       )}
@@ -70,7 +70,7 @@ function TeamCard({ team }: { team: FinalistTeam }) {
             }
           />
           {team.placement && (
-            <span className="absolute top-0 right-0 bg-secondary text-on-secondary px-4 py-1 font-label-caps text-[10px] uppercase tracking-widest">
+            <span className="absolute top-0 right-0 bg-secondary text-on-secondary px-4 py-1 font-label-caps text-[13px] uppercase tracking-widest">
               {team.placement} place
             </span>
           )}
@@ -79,21 +79,23 @@ function TeamCard({ team }: { team: FinalistTeam }) {
 
       <div className="p-6 flex flex-col flex-grow">
         {!team.groupPhoto && team.placement && (
-          <span className="self-start bg-secondary/10 text-secondary px-3 py-1 rounded-full font-label-caps text-[10px] uppercase tracking-widest mb-3">
+          <span className="self-start bg-secondary/10 text-secondary px-3 py-1 rounded-full font-label-caps text-[13px] uppercase tracking-widest mb-3">
             {team.placement} place
           </span>
         )}
-        <h3 className="font-headline-md text-2xl mb-2">{team.name}</h3>
-        <p className="font-body-md text-on-surface mb-3">{team.idea}</p>
+        <h3 className="font-headline-md text-2xl mb-1">{team.name}</h3>
+        <p className="font-label-caps text-label-caps text-secondary uppercase tracking-wide mb-4">
+          {team.idea}
+        </p>
         {team.description && (
-          <p className="font-body-md text-sm text-on-surface-variant flex-grow">
+          <p className="font-body-md text-sm text-on-surface-variant leading-relaxed flex-grow">
             {team.description}
           </p>
         )}
 
         {team.members.length > 0 && (
           <div className="pt-5 mt-5 border-t border-on-surface/10">
-            <span className="font-label-caps text-[10px] text-on-surface-variant uppercase block mb-4">
+            <span className="font-label-caps text-[13px] text-on-surface-variant uppercase block mb-4">
               Team
             </span>
             <ul className="flex flex-wrap gap-x-4 gap-y-5">

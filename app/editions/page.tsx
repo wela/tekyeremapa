@@ -9,7 +9,7 @@ import { editions } from "@/lib/editions";
 export const metadata: Metadata = {
   title: "Editions | Tɛkyerɛma Pa Hackathon",
   description:
-    "Documenting the evolution of Ghanaian linguistics through technology — the archive of every Tɛkyerɛma Pa hackathon edition.",
+    "Documenting the evolution of Ghanaian linguistics through technology, the archive of every Tɛkyerɛma Pa hackathon edition.",
 };
 
 export default function EditionsIndexPage() {

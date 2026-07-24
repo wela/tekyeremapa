@@ -92,7 +92,7 @@ export default function EditionsFooter() {
               </div>
             </form>
           </div>
-          <p className="mt-12 text-on-surface-variant font-label-caps text-[11px] opacity-60">
+          <p className="mt-12 text-on-surface-variant font-label-caps text-[14px] opacity-60">
             © 2026 Tɛkyerɛma Pa Hackathon. Empowering voices through technology.
           </p>
         </div>

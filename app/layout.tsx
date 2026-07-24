@@ -58,7 +58,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${ebGaramond.variable} ${jetbrainsMono.variable} ${outfit.variable} ${libreCaslon.variable} ${spaceMono.variable} ${fraunces.variable}`}
+      suppressHydrationWarning
     >
+      {/* Browser extensions can mutate the document root before React hydrates. */}
       <body>
         {/* eslint-disable-next-line @next/next/no-page-custom-font -- app-router root layout applies to every page */}
         <link

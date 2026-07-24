@@ -47,7 +47,7 @@ export default function EditionRow({ edition }: { edition: Edition }) {
   );
 
   const rowClass =
-    "editorial-row group grid grid-cols-1 md:grid-cols-12 gap-gutter items-center py-10 px-6 edition-row-border hover:bg-surface-container-low transition-all duration-300";
+    "editorial-row group grid grid-cols-1 md:grid-cols-12 gap-gutter items-center py-10 px-6 edition-row-border border-l-4 border-l-transparent hover:border-l-secondary hover:bg-secondary/10 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-secondary transition-all duration-300";
 
   if (edition.href) {
     return (

@@ -1,4 +1,7 @@
 import Icon from "@/components/shared/Icon";
+import ImageWithFallback from "@/components/shared/ImageWithFallback";
+import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
+import { publicImage } from "@/lib/assets";
 
 export default function ContactInfo() {
   return (
@@ -53,14 +56,13 @@ export default function ContactInfo() {
           </div>
         </div>
         <div className="relative rounded-xl overflow-hidden h-full min-h-[400px]">
-          <div
-            role="img"
-            aria-label="A serene open-air university corridor in Ghana with warm terracotta surfaces and soft morning sunlight"
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWMHpofwoxDQN_7VmyIfNRin3wTIOSK8_N7EN6yv09HOxtcx16OMigbFxzC-iIVPqgXDo1WNO5uqE6tUnpsWOyinS1T2sjB8-hmbYNvMxQ5Ywjnu3wP00P2b_eh-JWV3hZXvDzE03AbYC6cVG2OV5G70cEct2gRYrGDoQGAacUPcTHlNXEn08l2k-jX-PyKAu3YnX-QUXm02qKUXupjx2CeA_-3NjJC2SUGUEIeqQ_MO1JERlCE7OGBcOQ9UV2e_-E9XW_i8ay3NRi')",
-            }}
+          <ImageWithFallback
+            src={publicImage("/contact/contact.jpg")}
+            alt="The HCI Lab at the University of Ghana"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+            fallback={<ImagePlaceholder label="Contact photo" />}
           />
           <div className="absolute inset-0 bg-secondary/10" />
           <div className="absolute bottom-6 left-6 right-6">

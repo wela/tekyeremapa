@@ -1,4 +1,6 @@
-import Image from "next/image";
+import ImageWithFallback from "@/components/shared/ImageWithFallback";
+import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
+import { publicImage } from "@/lib/assets";
 
 export default function AboutHero() {
   return (
@@ -25,13 +27,13 @@ export default function AboutHero() {
           </div>
         </div>
         <div className="relative rounded-[14px] overflow-hidden w-full h-[400px] md:h-[500px]">
-          <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhC0T7xycaSR4D5QP_gzQx_QvpVfuKZfI4VSD0mFnxqOsNnbIRIzeKmeOxClurxdZpD4apEtK4rLgXIfrrDDCgQM8ldhqJnHu6GHmhO1-1W6PrtkmJmLNH7r7vublDroVVzm9rKKk2s7nOTrVBWI9o5tdv6D5T8yEEVKMY6f0qFZpEAsyfBoeFvwWxfF17ZT4SZy5L0e8eLfglIgPyQL8vveKa4GLDSNrdPMi_mXj-fkcT2HRPTpVKQdqmCw5TgFCICUCxJJz5ntrP"
-            alt="The HCI Lab team at the University of Ghana around a conference table with laptops and paper sketches"
+          <ImageWithFallback
+            src={publicImage("/about/hero.jpg")}
+            alt="The HCI Lab team at the University of Ghana"
             fill
             sizes="(max-width: 1200px) 100vw, 1200px"
             className="object-cover"
-            priority
+            fallback={<ImagePlaceholder label="Hero photo" />}
           />
         </div>
       </div>

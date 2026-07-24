@@ -1,7 +1,7 @@
 const CONTRIBUTIONS = [
   {
     label: "Waxal dataset",
-    text: "A premier, curated dataset of 10,000+ hours of transcribed speech across five Ghanaian languages.",
+    text: "A premier, curated dataset of 5,000+ hours of transcribed speech across five Ghanaian languages.",
   },
   {
     label: "UGSpeechData",
@@ -12,8 +12,12 @@ const CONTRIBUTIONS = [
     text: "Pre-trained base models for Automatic Speech Recognition, optimized for local tonal nuances.",
   },
   {
-    label: "UG Keyboard",
-    text: "Standardized digital input toolsets for specialized characters in Ghanaian orthographies.",
+    label: "Akan/Ewe TTS",
+    text: "Text-to-Speech models that give Akan and Ewe a natural synthetic voice for assistive and everyday use.",
+  },
+  {
+    label: "Akan and Ewe Keyboard",
+    text: "Standardized digital input toolsets for specialized characters in Akan and Ewe orthographies.",
   },
 ];
 

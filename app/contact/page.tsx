@@ -10,7 +10,7 @@ import ContactFooter from "@/components/contact/ContactFooter";
 export const metadata: Metadata = {
   title: "Contact & Partner | Tɛkyerɛma Pa",
   description:
-    "Get in touch with the Tɛkyerɛma Pa hackathon team — general inquiries, corporate sponsorship, academic collaboration, and community partnerships.",
+    "Get in touch with the Tɛkyerɛma Pa hackathon team, general inquiries, corporate sponsorship, academic collaboration, and community partnerships.",
 };
 
 export default function ContactPage() {

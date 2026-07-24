@@ -1,5 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
+import ImageWithFallback from "@/components/shared/ImageWithFallback";
+import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
+import { publicImage } from "@/lib/assets";
 
 export default function ClosingSection() {
   return (
@@ -17,7 +19,7 @@ export default function ClosingSection() {
                 future. By opening up our proprietary data and models, the HCI
                 Lab aims to empower the next generation of Ghanaian developers
                 to build human-centered AI that understands
-                us&mdash;literally.
+                us, literally.
               </p>
               <p>
                 Our mission is to foster an ecosystem where language is no
@@ -43,22 +45,24 @@ export default function ClosingSection() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="relative rounded-[14px] overflow-hidden aspect-[3/4]">
-              <Image
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4d-eZ_x85dG1cRBZyu196D7o6RjHO6-dIT5f9-Hq8Jejhec9K_QRjlJbtJdylH75_502oNqZTLt6d8SfW7X9pe3oIQ4Pf0PtE7_lYngI7wDRk0WUJQgqxX0Yh2_JVL6oX1AMz-rlztxzW6_nrnNg7FdN273Ld3flkDZs3_llB9xxza3SYWwTVbJie4oj8Pe4IIiNB1uwJILgxyUWb1EzRT19MZ9vAFS9fsKw6n6nytGg30jCE8X8gfKDxOCeHV6iR-HJ-fQfpF2cW"
-                alt="Winners of the 2025 Tɛkyerɛma Pa hackathon holding a trophy, surrounded by screens showing their projects"
+              <ImageWithFallback
+                src={publicImage("/about/closing-1.jpg")}
+                alt="Tɛkyerɛma Pa hackathon moment"
                 fill
                 sizes="(max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
+                fallback={<ImagePlaceholder />}
               />
             </div>
             <div className="pt-12">
               <div className="relative rounded-[14px] overflow-hidden aspect-[3/4]">
-                <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSPsIdcp_yyMTaEudbTsBuWo5RZscVUxjNwnmPxkcx62SE-JKGZFt2FMmnrfcp5qy9xyWSHASi2evJjmgqbN3nbalIK9WmWUJ7QsAXFuHQPOeaSom2NxYcQWn18kHLYatcP0KBPxziY3Z4IQAC2kzENYVU_gnPRXVKEDIHWZQ_9PfxzKlp8pOLzH4vOwqS4CLEOZMQ7r90LxldNz0NpAqk6Ndh7VAdHaaYXDB15QUIO8N3kEuVPmyPPl34_1NKwrPUUL5NjjqopnvZ"
-                  alt="A developer typing intensely at the 2025 hackathon with code reflected in their glasses"
+                <ImageWithFallback
+                  src={publicImage("/about/closing-2.jpg")}
+                  alt="Tɛkyerɛma Pa hackathon moment"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover"
+                  fallback={<ImagePlaceholder />}
                 />
               </div>
             </div>

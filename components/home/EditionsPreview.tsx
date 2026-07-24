@@ -26,11 +26,11 @@ export default function EditionsPreview() {
                   ))}
                 </div>
                 {edition.status === "open" ? (
-                  <div className="bg-secondary/10 text-secondary font-eyebrow px-4 py-1 rounded-full uppercase text-[10px]">
+                  <div className="bg-secondary/10 text-secondary font-eyebrow px-4 py-1 rounded-full uppercase text-[13px]">
                     Open
                   </div>
                 ) : (
-                  <div className="bg-primary/5 text-on-tertiary-fixed-variant font-eyebrow px-4 py-1 rounded-full uppercase text-[10px]">
+                  <div className="bg-primary/5 text-on-tertiary-fixed-variant font-eyebrow px-4 py-1 rounded-full uppercase text-[13px]">
                     Complete
                   </div>
                 )}

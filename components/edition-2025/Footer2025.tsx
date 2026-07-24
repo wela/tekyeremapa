@@ -98,7 +98,7 @@ export default function Footer2025() {
           <p className="font-label-caps text-label-caps text-on-surface-variant opacity-80">
             © 2026 Tɛkyerɛma Pa Hackathon. Empowering voices through technology.
           </p>
-          <span className="font-label-caps text-[10px] text-on-surface-variant uppercase opacity-70">
+          <span className="font-label-caps text-[13px] text-on-surface-variant uppercase opacity-70">
             University of Ghana · HCI Lab
           </span>
         </div>

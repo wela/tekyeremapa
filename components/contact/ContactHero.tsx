@@ -8,8 +8,8 @@ export default function ContactHero() {
         <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
           Communication is the bedrock of cultural preservation. Whether
           you&rsquo;re a student with a question, a researcher seeking
-          collaboration, or a community leader with a vision, our doors&mdash;and
-          digital channels&mdash;are open. We prioritize accessibility in all
+          collaboration, or a community leader with a vision, our doors and
+          digital channels are open. We prioritize accessibility in all
           our interactions.
         </p>
       </div>

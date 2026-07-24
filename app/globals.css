@@ -82,39 +82,43 @@
   --font-stats-mono: var(--font-jetbrains-mono), monospace;
   --font-label-caps: var(--font-jetbrains-mono), monospace;
 
-  /* Type scale */
-  --text-eyebrow: 12px;
-  --text-eyebrow--line-height: 1;
+  /*
+   * Type scale. Sized up from the original mockup for readability — this is an
+   * accessibility-focused project, so body copy sits above the 16px default and
+   * small labels never drop below 13px.
+   */
+  --text-eyebrow: 14px;
+  --text-eyebrow--line-height: 1.2;
   --text-eyebrow--letter-spacing: 0.1em;
   --text-eyebrow--font-weight: 600;
 
-  --text-label-caps: 12px;
-  --text-label-caps--line-height: 1;
+  --text-label-caps: 14px;
+  --text-label-caps--line-height: 1.2;
   --text-label-caps--font-weight: 700;
 
-  --text-display-lg: 48px;
+  --text-display-lg: 56px;
   --text-display-lg--line-height: 1.1;
   --text-display-lg--letter-spacing: -0.02em;
   --text-display-lg--font-weight: 600;
 
-  --text-display-lg-mobile: 32px;
+  --text-display-lg-mobile: 36px;
   --text-display-lg-mobile--line-height: 1.2;
   --text-display-lg-mobile--font-weight: 600;
 
-  --text-headline-md: 32px;
-  --text-headline-md--line-height: 1.2;
+  --text-headline-md: 36px;
+  --text-headline-md--line-height: 1.25;
   --text-headline-md--font-weight: 500;
 
-  --text-body-md: 16px;
-  --text-body-md--line-height: 1.6;
+  --text-body-md: 18px;
+  --text-body-md--line-height: 1.65;
   --text-body-md--font-weight: 400;
 
-  --text-body-lg: 18px;
+  --text-body-lg: 20px;
   --text-body-lg--line-height: 1.7;
   --text-body-lg--font-weight: 400;
 
-  --text-stats-mono: 14px;
-  --text-stats-mono--line-height: 1;
+  --text-stats-mono: 15px;
+  --text-stats-mono--line-height: 1.2;
   --text-stats-mono--letter-spacing: 0.05em;
   --text-stats-mono--font-weight: 500;
 
@@ -363,6 +367,13 @@
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+/* Safety net: never leave content permanently hidden if JS fails to run. */
+@media (scripting: none) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal {

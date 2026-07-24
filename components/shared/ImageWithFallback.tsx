@@ -15,7 +15,7 @@ type Props = Omit<ImageProps, "src" | "alt"> & {
  * Renders an optimised next/image, but falls back to placeholder markup when
  * `src` is absent or the file 404s. This lets us ship image "slots" that show a
  * tidy placeholder now and light up automatically once the real file is dropped
- * into /public — no code change required.
+ * into /public, no code change required.
  */
 export default function ImageWithFallback({
   src,

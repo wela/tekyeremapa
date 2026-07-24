@@ -35,7 +35,10 @@ const CARDS = [
 
 export default function MissionGrid() {
   return (
-    <section className="bg-surface-container-low py-20 md:py-section-gap">
+    <section
+      id="mission"
+      className="bg-surface-container-low py-20 md:py-section-gap scroll-mt-20"
+    >
       <div className="max-w-container-max mx-auto px-6 md:px-gutter">
         <div className="mb-16">
           <h2 className="font-headline-md text-headline-md text-primary max-w-2xl">

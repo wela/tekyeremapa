@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Icon from "@/components/shared/Icon";
@@ -49,11 +50,18 @@ export default function TopNav() {
   return (
     <header className="topnav fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-sm border-b border-outline-variant">
       <nav className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4">
-        <Link
-          href="/"
-          className="font-headline-md text-headline-md font-bold text-primary tracking-tight"
-        >
-          Tɛkyerɛma Pa
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src="/partners/HCILAB.png"
+            alt=""
+            width={240}
+            height={240}
+            className="h-14 md:h-16 w-auto object-contain"
+          />
+          <span className="font-headline-md text-headline-md font-bold text-primary tracking-tight">
+            Tɛkyerɛma Pa
+          </span>
+          <span className="sr-only">, HCI Lab, University of Ghana, home</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {LINKS.map((link) => renderLink(link))}

@@ -17,8 +17,13 @@ import { getGalleryImages } from "@/lib/gallery";
 export const metadata: Metadata = {
   title: "2025 Edition | Tɛkyerɛma Pa",
   description:
-    "Tɛkyerɛma Pa (Good Tongue) Hackathon 2025 — ASR and Text-to-Speech solutions for individuals with speech impairment in Ghanaian languages. A University of Ghana and UCL collaboration, part of AT2030.",
+    "Tɛkyerɛma Pa (Good Tongue) Hackathon 2025, ASR and Text-to-Speech solutions for individuals with speech impairment in Ghanaian languages. A University of Ghana and UCL collaboration, part of AT2030.",
 };
+
+// The gallery is read from the filesystem at render time, which Next.js does
+// not track as a cache dependency. Force a fresh render so newly added photos
+// always show (and the page is never cached with an empty gallery).
+export const dynamic = "force-dynamic";
 
 export default function Edition2025Page() {
   const galleryImages = getGalleryImages("2025");
