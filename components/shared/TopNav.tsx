@@ -49,14 +49,14 @@ export default function TopNav() {
 
   return (
     <header className="topnav fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-sm border-b border-outline-variant">
-      <nav className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4">
+      <nav className="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 md:h-24">
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/partners/hcilab.jpeg"
             alt=""
             width={240}
             height={240}
-            className="h-14 md:h-16 w-auto object-contain"
+            className="h-16 md:h-20 w-auto object-contain"
           />
           <span className="font-headline-md text-headline-md font-bold text-primary tracking-tight">
             Tɛkyerɛma Pa

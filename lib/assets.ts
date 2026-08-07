@@ -53,6 +53,21 @@ export function firstImageIn(dir: string): string | undefined {
   }
 }
 
+/**
+ * True if a file exists under /public at the given path (any type — pptx, pdf,
+ * etc.). Lets a section list a download only when its file is actually present.
+ *
+ * Server-only: uses the filesystem, so call it from Server Components.
+ */
+export function publicFileExists(src: string): boolean {
+  const full = path.join(process.cwd(), "public", src.replace(/^\//, ""));
+  try {
+    return fs.statSync(full).isFile();
+  } catch {
+    return false;
+  }
+}
+
 export function publicImage(src?: string): string | undefined {
   if (!src) return undefined;
   if (existsInPublic(src)) return src;

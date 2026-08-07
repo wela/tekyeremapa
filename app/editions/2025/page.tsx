@@ -31,7 +31,7 @@ export default function Edition2025Page() {
   return (
     <div className="selection:bg-primary-fixed selection:text-on-primary-fixed">
       <TopNav />
-      <main className="pt-20">
+      <main className="pt-20 md:pt-24">
         <Reveal>
           <Hero2025 />
         </Reveal>

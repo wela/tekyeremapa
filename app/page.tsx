@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <>
       <TopNav />
-      <main className="mt-[72px]">
+      <main className="mt-20 md:mt-24">
         <Hero />
         <MissionGrid />
         <WhyItMatters />

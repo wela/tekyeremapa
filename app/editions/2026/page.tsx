@@ -6,6 +6,7 @@ import StatsBand from "@/components/edition-2026/StatsBand";
 import Roadmap from "@/components/edition-2026/Roadmap";
 import Prizes from "@/components/edition-2026/Prizes";
 import ImpactTracks from "@/components/edition-2026/ImpactTracks";
+import Resources from "@/components/edition-2026/Resources";
 import MentorsGrid from "@/components/edition-2026/MentorsGrid";
 import RetroGallery from "@/components/edition-2026/RetroGallery";
 import PartnersBand from "@/components/edition-2026/PartnersBand";
@@ -24,7 +25,7 @@ export default function Edition2026Page() {
       className="overflow-x-hidden selection:bg-primary/30"
     >
       <TopNav />
-      <main className="pt-20">
+      <main className="pt-20 md:pt-24">
         <Reveal>
           <Hero2026 />
         </Reveal>
@@ -39,6 +40,9 @@ export default function Edition2026Page() {
         </Reveal>
         <Reveal>
           <ImpactTracks />
+        </Reveal>
+        <Reveal>
+          <Resources />
         </Reveal>
         {/* <Reveal>
           <MentorsGrid />

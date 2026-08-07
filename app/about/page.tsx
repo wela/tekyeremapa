@@ -22,7 +22,7 @@ export default function AboutPage() {
     >
       <div data-theme="about">
         <TopNav />
-        <main className="mt-[72px]">
+        <main className="mt-20 md:mt-24">
           <AboutHero />
           <LeadProfile />
           <LabLink />
