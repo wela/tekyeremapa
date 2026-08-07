@@ -17,7 +17,7 @@ export default function ContactInfo() {
                 href="mailto:hcidcsug@gmail.com"
                 className="font-headline-md text-headline-md text-secondary lowercase break-all hover:text-primary transition-colors"
               >
-                hcidcsug@gmail.com
+                Contact email: dcshcilab@ug.edu.gh
               </a>
             </div>
             <div className="hairline-rule pb-4">
