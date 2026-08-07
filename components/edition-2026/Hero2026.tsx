@@ -1,7 +1,9 @@
+import Image from "next/image";
 import Icon from "@/components/shared/Icon";
 import ImageWithFallback from "@/components/shared/ImageWithFallback";
 import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
 import { publicImage } from "@/lib/assets";
+import { getGalleryImages } from "@/lib/gallery";
 
 const FACTS = [
   { label: "Host", value: "University of Ghana" },
@@ -11,25 +13,37 @@ const FACTS = [
 ];
 
 export default function Hero2026() {
+  // Prefer /public/edition-2026/hero.jpg; otherwise use a real 2025 photo so
+  // the hero is never blank.
+  const heroSrc =
+    publicImage("/edition-2026/hero.jpg") ?? getGalleryImages("2025")[40]?.src;
+
   return (
     <section className="relative py-section-gap px-margin-mobile md:px-margin-desktop overflow-hidden border-b border-on-surface/5">
       <div className="max-w-container-max mx-auto grid md:grid-cols-12 gap-gutter items-center">
         <div className="md:col-span-7 z-10">
-          <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="font-stats-mono text-label-caps uppercase text-primary">
-              Now Open for Entries
+          <div className="flex items-center gap-4 mb-6">
+            <Image
+              src="/brand/mtn-logo.svg"
+              alt="MTN"
+              width={72}
+              height={72}
+              className="h-14 w-14 rounded-lg shadow-sm"
+            />
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/15 border border-primary/30">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="font-stats-mono text-label-caps uppercase text-on-surface">
+                Edition 2026 · Now open for entries
+              </span>
             </span>
           </div>
           <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 text-on-surface leading-[1.1]">
-            Edition <span className="text-primary italic">2026</span>: Inclusive
-            Digital Solutions
+            <span className="text-primary">MTN</span> Tɛkyerɛma Pa Hackathon
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">
-            Join us for the most ambitious Tɛkyerɛma Pa hackathon yet. We are
-            bringing together Ghana&rsquo;s brightest minds to build scalable,
-            inclusive technology that bridges the gap for underserved
-            communities.
+            Sponsored by MTN Ghana, the 2026 edition brings together Ghana&rsquo;s
+            brightest minds to build scalable, inclusive digital solutions that
+            bridge the communication gap for underserved communities.
           </p>
           <div className="flex flex-wrap gap-8 items-center border-l-2 border-primary pl-6 mb-8">
             {FACTS.map((fact) => (
@@ -48,8 +62,8 @@ export default function Hero2026() {
           <div className="aspect-square bg-surface-container rounded-xl overflow-hidden editorial-border p-4 relative group">
             <div className="relative w-full h-full rounded-lg overflow-hidden">
               <ImageWithFallback
-                src={publicImage("/edition-2026/hero.jpg")}
-                alt="Tɛkyerɛma Pa Hackathon 2026"
+                src={heroSrc}
+                alt="MTN Tɛkyerɛma Pa Hackathon 2026"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover"

@@ -12,9 +12,9 @@ import PartnersBand from "@/components/edition-2026/PartnersBand";
 import Footer2026 from "@/components/edition-2026/Footer2026";
 
 export const metadata: Metadata = {
-  title: "Tɛkyerɛma Pa Hackathon | Edition 2026",
+  title: "MTN Tɛkyerɛma Pa Hackathon | Edition 2026",
   description:
-    "Edition 2026: Inclusive Digital Solutions, hosted by the University of Ghana and sponsored by MTN Ghana. Now open for entries.",
+    "MTN Tɛkyerɛma Pa Hackathon 2026: Inclusive Digital Solutions, hosted by the University of Ghana and sponsored by MTN Ghana. Now open for entries.",
 };
 
 export default function Edition2026Page() {

@@ -9,21 +9,23 @@ import { getGalleryImages } from "@/lib/gallery";
  * photo from the real 2025 gallery, so this section is never empty.
  */
 const SLOTS = [
-  { file: "/edition-2026/retro-1.jpg", offset: false },
-  { file: "/edition-2026/retro-2.jpg", offset: true },
-  { file: "/edition-2026/retro-3.jpg", offset: false },
-  { file: "/edition-2026/retro-4.jpg", offset: true },
+  { file: "/edition-2026/retro-1.jpg", offset: false, fallbackIndex: 0 },
+  { file: "/edition-2026/retro-2.jpg", offset: true, fallbackIndex: 30 },
+  { file: "/edition-2026/retro-3.jpg", offset: false, fallbackIndex: 95 },
+  { file: "/edition-2026/retro-4.jpg", offset: true, fallbackIndex: 90 },
 ];
 
 export default function RetroGallery() {
   const gallery2025 = getGalleryImages("2025");
-  // Spread the fallbacks across the set rather than taking the first four.
-  const step = Math.max(1, Math.floor(gallery2025.length / SLOTS.length));
 
-  const photos = SLOTS.map((slot, index) => ({
-    ...slot,
-    src: publicImage(slot.file) ?? gallery2025[index * step]?.src,
-  }));
+  const photos = SLOTS.map((slot) => {
+    const fallback =
+      gallery2025[Math.min(slot.fallbackIndex, gallery2025.length - 1)]?.src;
+    return {
+      ...slot,
+      src: publicImage(slot.file) ?? fallback,
+    };
+  });
 
   return (
     <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-high border-y border-on-surface/5">

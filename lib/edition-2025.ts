@@ -259,7 +259,7 @@ export interface Sponsor {
  * a file exists, the sponsor's name shows as text automatically.
  */
 export const sponsors: Sponsor[] = [
-  { name: "HCI Lab", logo: "/partners/HCILAB.png" },
+  { name: "HCI Lab", logo: "/partners/hcilab.jpeg" },
   { name: "University of Ghana", logo: "/partners/university-of-ghana.png" },
   {
     name: "Global Disability Innovation Hub",

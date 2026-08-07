@@ -52,7 +52,7 @@ export default function TopNav() {
       <nav className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/partners/HCILAB.png"
+            src="/partners/hcilab.jpeg"
             alt=""
             width={240}
             height={240}

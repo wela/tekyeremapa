@@ -102,7 +102,8 @@ export default function Footer2026() {
         </div>
         <div className="md:col-span-12 mt-12 pt-12 border-t border-on-surface/15">
           <p className="text-on-surface-variant font-body-md opacity-80">
-            © 2026 Tɛkyerɛma Pa Hackathon. Empowering voices through technology.
+            © 2026 MTN Tɛkyerɛma Pa Hackathon. Empowering voices through
+            technology.
           </p>
         </div>
       </div>
