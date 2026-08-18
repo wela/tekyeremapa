@@ -8,5 +8,5 @@ Expected filenames (edit components/edition-2026/Resources.tsx to change them):
 - awareness-campaign.pptx — Awareness Campaign Deck
 - hackathon-brief.pdf — Hackathon Brief
 
-The YouTube link for the awareness campaign session goes in the YOUTUBE_URL
-constant at the top of components/edition-2026/Resources.tsx.
+YouTube links for awareness campaign sessions go in the YOUTUBE_VIDEOS list at
+the top of components/edition-2026/Resources.tsx.
