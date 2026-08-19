@@ -57,7 +57,7 @@ export default function ClosingSection() {
             <div className="pt-12">
               <div className="relative rounded-[14px] overflow-hidden aspect-[3/4]">
                 <ImageWithFallback
-                  src={"/about/closing-2.jpg"}
+                  src={"/about/closing-2.JPG"}
                   alt="Tɛkyerɛma Pa hackathon moment"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
