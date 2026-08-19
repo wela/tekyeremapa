@@ -4,13 +4,14 @@ import Reveal from "@/components/shared/Reveal";
 import Hero2026 from "@/components/edition-2026/Hero2026";
 import StatsBand from "@/components/edition-2026/StatsBand";
 import Roadmap from "@/components/edition-2026/Roadmap";
+import MentorshipSchedule from "@/components/edition-2026/MentorshipSchedule";
 import Prizes from "@/components/edition-2026/Prizes";
 import ImpactTracks from "@/components/edition-2026/ImpactTracks";
 import Resources from "@/components/edition-2026/Resources";
-import MentorsGrid from "@/components/edition-2026/MentorsGrid";
 import RetroGallery from "@/components/edition-2026/RetroGallery";
 import PartnersBand from "@/components/edition-2026/PartnersBand";
 import Footer2026 from "@/components/edition-2026/Footer2026";
+import MentorsGrid from "@/components/edition-2026/MentorsGrid";
 
 export const metadata: Metadata = {
   title: "MTN Tɛkyerɛma Pa Hackathon | Edition 2026",
@@ -36,6 +37,12 @@ export default function Edition2026Page() {
           <Roadmap />
         </Reveal>
         <Reveal>
+          <MentorsGrid />
+        </Reveal>
+        <Reveal>
+          <MentorshipSchedule />
+        </Reveal>
+        <Reveal>
           <Prizes />
         </Reveal>
         <Reveal>
@@ -44,9 +51,6 @@ export default function Edition2026Page() {
         <Reveal>
           <Resources />
         </Reveal>
-        {/* <Reveal>
-          <MentorsGrid />
-        </Reveal> */}
         <Reveal>
           <RetroGallery />
         </Reveal>

@@ -2,8 +2,8 @@ import Icon from "@/components/shared/Icon";
 
 // Cash prizes from the 2026 poster. Amounts are in Ghana Cedis (MTN Ghana).
 const CASH_PRIZES = [
-  { place: "1st Prize", amount: "GH₵70,000", featured: true },
   { place: "2nd Prize", amount: "GH₵20,000", featured: false },
+  { place: "1st Prize", amount: "GH₵70,000", featured: true },
   { place: "3rd Prize", amount: "GH₵10,000", featured: false },
 ];
 
@@ -25,14 +25,14 @@ export default function Prizes() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter items-center">
           {CASH_PRIZES.map((prize) => (
             <div
               key={prize.place}
               className={`rounded-xl p-10 flex flex-col items-center text-center hover-lift ${
                 prize.featured
-                  ? "bg-primary text-on-primary md:-mt-4 md:pb-14"
-                  : "bg-surface editorial-border"
+                  ? "bg-primary text-on-primary p-18"
+                  : "bg-surface editorial-border p-10"
               }`}
             >
               <Icon

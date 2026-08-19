@@ -1,4 +1,4 @@
-export type EditionStatus = "open" | "complete";
+export type EditionStatus = "open" | "complete" | "ongoing";
 
 export interface Edition {
   year: number;
@@ -12,7 +12,7 @@ export const editions: Edition[] = [
   {
     year: 2026,
     sponsors: ["MTN"],
-    status: "open",
+    status: "ongoing",
     href: "/editions/2026",
   },
   {

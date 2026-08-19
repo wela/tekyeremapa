@@ -1,71 +1,57 @@
 import Icon from "@/components/shared/Icon";
 
+const IMPACT_TRACKS = [
+  {
+    title: "Accessibility & Personalization",
+    icon: "accessibility_new",
+    description:
+      "Design inclusive experiences that adapt to different abilities, needs, languages, and contexts.",
+  },
+  {
+    title: "Fintech & Digital Services",
+    icon: "payments",
+    description:
+      "Create secure, inclusive, mobile-first financial tools and digital services for underserved communities.",
+  },
+  {
+    title: "AI & Language Technologies",
+    icon: "translate",
+    description:
+      "Advance speech, text, and language tools that make technology work for Ghanaian and African languages.",
+  },
+];
+
 export default function ImpactTracks() {
   return (
-    <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container">
-      <div className="max-w-container-max mx-auto">
-        <div className="text-center mb-16">
+    <section className="bg-surface-container py-section-gap px-margin-mobile md:px-margin-desktop">
+      <div className="mx-auto max-w-container-max">
+        <div className="mb-16 text-center">
           <h2 className="font-display-lg text-headline-md">Impact Tracks</h2>
-          <p className="text-on-surface-variant font-body-md mt-2">
-            Where will you make your mark?
+          <p className="mt-2 font-body-md text-on-surface-variant">
+            Choose the area where you want to make your mark.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-          <div className="md:col-span-8 p-10 bg-surface rounded-xl hover-lift editorial-border flex flex-col justify-between min-h-[400px]">
-            <div>
-              <Icon name="payments" className="text-primary text-5xl mb-6" />
-              <h3 className="font-display-lg text-headline-md mb-4">
-                Fintech For All
+
+        <div className="grid grid-cols-1 gap-gutter md:grid-cols-2 lg:grid-cols-3">
+          {IMPACT_TRACKS.map((track) => (
+            <article
+              key={track.title}
+              className="flex min-h-72 flex-col rounded-xl bg-surface p-8 editorial-border hover-lift"
+            >
+              <span
+                className="mb-6 flex size-14 items-center justify-center rounded-xl bg-primary/10 text-primary"
+                aria-hidden="true"
+              >
+                <Icon name={track.icon} className="text-4xl" />
+              </span>
+              <h3 className="font-headline-md text-[24px] leading-snug">
+                {track.title}
               </h3>
-              <p className="text-body-lg text-on-surface-variant max-w-lg">
-                Designing financial tools for the unbanked, leveraging USSD,
-                voice recognition, and offline blockchain solutions to ensure no
-                one is left behind.
+              <p className="mt-3 font-body-md text-on-surface-variant">
+                {track.description}
               </p>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {["USSD", "Micro-Insurance", "Offline Payments"].map((tag) => (
-                <span
-                  key={tag}
-                  className="bg-primary/10 text-primary font-stats-mono text-label-caps px-3 py-1 rounded-full uppercase"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="md:col-span-4 p-8 bg-surface rounded-xl hover-lift editorial-border">
-            <Icon name="health_metrics" className="text-primary text-4xl mb-6" />
-            <h3 className="font-headline-md text-[24px] mb-3">Rural Health</h3>
-            <p className="text-body-md text-on-surface-variant">
-              Connecting remote clinics to urban specialists via low-bandwidth
-              telemedicine platforms.
-            </p>
-          </div>
-          <div className="md:col-span-4 p-8 bg-surface rounded-xl hover-lift editorial-border">
-            <Icon name="agriculture" className="text-primary text-4xl mb-6" />
-            <h3 className="font-headline-md text-[24px] mb-3">Agri-Logistics</h3>
-            <p className="text-body-md text-on-surface-variant">
-              Optimizing the supply chain for smallholder farmers using IoT and
-              predictive analytics.
-            </p>
-          </div>
-          <div className="md:col-span-8 p-10 bg-primary text-on-primary rounded-xl hover-lift flex items-center gap-8 group">
-            <div className="max-w-md">
-              <h3 className="font-display-lg text-headline-md mb-4 text-on-primary">
-                The Open Track
-              </h3>
-              <p className="opacity-90">
-                Have a solution that doesn&rsquo;t fit a box? Our wild-card
-                track welcomes any radical innovation targeting digital
-                inclusion in West Africa.
-              </p>
-            </div>
-            <Icon
-              name="lightbulb"
-              className="hidden md:block text-[120px] opacity-20 transition-transform group-hover:scale-110"
-            />
-          </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

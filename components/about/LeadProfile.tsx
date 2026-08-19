@@ -16,7 +16,7 @@ export default function LeadProfile() {
         <div className="md:col-span-5">
           <div className="relative rounded-[14px] overflow-hidden aspect-[3/4]">
             <ImageWithFallback
-              src={publicImage("/about/lead-isaac-wiafe.png")}
+              src={"/about/lead-isaac-wiafe_4k.png"}
               alt="Portrait of Prof. Isaac Wiafe"
               fill
               sizes="(max-width: 768px) 100vw, 40vw"

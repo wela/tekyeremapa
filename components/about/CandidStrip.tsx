@@ -5,10 +5,10 @@ import { publicImage } from "@/lib/assets";
 // Drop a file matching `image` into /public/about/candid/ (any extension
 // resolves). `alt` describes the photo for screen readers.
 const SHOTS = [
-  { alt: "HCI Lab candid photo", image: "/about/candid/candid-1.jpg" },
-  { alt: "HCI Lab candid photo", image: "/about/candid/candid-2.jpg" },
-  { alt: "HCI Lab candid photo", image: "/about/candid/candid-3.jpg" },
-  { alt: "HCI Lab candid photo", image: "/about/candid/candid-4.jpg" },
+  { alt: "HCI Lab candid photo", image: "/about/candid/group-1.jpg" },
+  { alt: "HCI Lab candid photo", image: "/about/candid/group-2.jpg" },
+  { alt: "HCI Lab candid photo", image: "/about/candid/group-3.jpg" },
+  { alt: "HCI Lab candid photo", image: "/about/candid/group-4.png" },
 ];
 
 export default function CandidStrip() {

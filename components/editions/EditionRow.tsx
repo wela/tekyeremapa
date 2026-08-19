@@ -8,7 +8,7 @@ export default function EditionRow({ edition }: { edition: Edition }) {
       <div className="md:col-span-2">
         <span
           className={`year-text inline-block font-display-lg text-display-lg-mobile md:text-display-lg transition-transform duration-500 ${
-            edition.status === "open"
+            edition.status === "ongoing"
               ? "text-secondary"
               : "text-on-surface-variant"
           }`}
@@ -29,10 +29,10 @@ export default function EditionRow({ edition }: { edition: Edition }) {
         </div>
       </div>
       <div className="md:col-span-3 flex md:justify-end items-center mt-4 md:mt-0">
-        {edition.status === "open" ? (
+        {edition.status === "ongoing" ? (
           <div className="flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-1.5 rounded-full">
             <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-            <span className="font-stats-mono text-stats-mono uppercase">Open</span>
+            <span className="font-stats-mono text-stats-mono uppercase">Ongoing</span>
           </div>
         ) : (
           <div className="flex items-center gap-2 bg-on-surface-variant/10 text-on-surface-variant px-4 py-1.5 rounded-full">

@@ -1,15 +1,15 @@
 const STATS = [
   { value: "2,500+", label: "Applicants" },
-  { value: "120", label: "Finalists" },
+  { value: "5 Teams", label: "Finalists" },
   { value: "30", label: "Mentors" },
-  { value: "12", label: "Tracks" },
+  // { value: "12", label: "Tracks" },
 ];
 
 export default function StatsBand() {
   return (
     <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low">
       <div className="max-w-container-max mx-auto">
-        <div className="grid md:grid-cols-4 gap-gutter text-center">
+        <div className="grid md:grid-cols-3 gap-gutter text-center">
           {STATS.map((stat, index) => (
             <div
               key={stat.label}

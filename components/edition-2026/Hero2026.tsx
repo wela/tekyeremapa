@@ -33,12 +33,12 @@ export default function Hero2026() {
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/15 border border-primary/30">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="font-stats-mono text-label-caps uppercase text-on-surface">
-                Edition 2026 · Now open for entries
+                Edition 2026 · Closed for entries
               </span>
             </span>
           </div>
           <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 text-on-surface leading-[1.1]">
-            <span className="text-primary">MTN</span> Tɛkyerɛma Pa Hackathon
+            <span className="text-primary">MTN GHANA</span>
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">
             Sponsored by MTN Ghana, the 2026 edition brings together Ghana&rsquo;s

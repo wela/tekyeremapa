@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 const WAYS = [
-  {
-    title: "Enter",
-    text: "Join as a team of 3-5 to build the future of communications.",
-    linkLabel: "APPLY FOR 2026 →",
-    href: "/editions/2026",
-  },
+  // {
+  //   title: "Enter",
+  //   text: "Join as a team of 3-5 to build the future of communications.",
+  //   linkLabel: "APPLY FOR 2026 →",
+  //   href: "/editions/2026",
+  // },
   {
     title: "Mentor",
     text: "Share your expertise in language, design, or engineering.",

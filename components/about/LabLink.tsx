@@ -1,7 +1,7 @@
 import Icon from "@/components/shared/Icon";
 
 // TODO: swap for the lab's own site if you have one beyond this links hub.
-const LAB_URL = "https://linktr.ee/DCSHCILAB";
+const LAB_URL = "https://hci-lab-dcsug.github.io/hci-ugdcs/";
 
 export default function LabLink() {
   return (

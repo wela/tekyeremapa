@@ -57,7 +57,7 @@ export default function ContactInfo() {
         </div>
         <div className="relative rounded-xl overflow-hidden h-full min-h-[400px]">
           <ImageWithFallback
-            src={publicImage("/contact/contact.jpg")}
+            src={"/logo/logo_bg.jpeg"}
             alt="The HCI Lab at the University of Ghana"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"

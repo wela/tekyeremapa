@@ -1,77 +1,176 @@
 import Image from "next/image";
-import Icon from "@/components/shared/Icon";
 
-const MENTORS = [
+interface Mentor {
+  name: string;
+  image: string;
+  bio: string;
+  imagePosition?: string;
+}
+
+interface MentorCategory {
+  category: string;
+  focus: string;
+  mentors: Mentor[];
+}
+
+const MENTOR_CATEGORIES: MentorCategory[] = [
   {
-    name: "Dr. Afua Mensah",
-    role: "Lead AI Researcher, MTN",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA2XGZSbJVIzz2QZ8QgGqolY9k0Gn2rYu6_zSD_ECvPdhk-KyM3DRhyDqq7HoUd9uTAkBu3ROirY_Chp05koijBL65RTbRousc9fT1w5lGZb8x6QTEDta-4tBHphBc9d3bkLuQbOgJfHqnbdbk7YuNzY1Wy5FDS1umdOmnPigMdL5FsF3G8ai4lAotwQZuhb41MXy8gW0uYiYkx1bciAVm2EbNx2qPUQ95doyIDqUGymsNJZI4dS-XGu1LfOA8Hz8Eub1t4YKrtmspF",
-    alt: "Headshot of a female technology executive wearing a business suit with a kente-patterned scarf",
+    category: "Business, Engineering & Impact",
+    focus:
+      "Software engineering, scalability, market viability, startup development, and impact assessment",
+    mentors: [
+      {
+        name: "Mr. Benjamin Arhin-Acquaah",
+        image: "/mentors/2026/Benjamin Arhin-Acquaah.jpg",
+        imagePosition: "center 35%",
+        bio: "Benjamin Arhin-Acquaah is a software engineer with experience building products across startups, fintech, banking, and technology. He holds a degree in Computer Science from KNUST and has worked with organisations including CalBank, Goldman Sachs, and WeWire. He is also a founding engineer at Kook Technologies and currently builds technology products within the financial services industry. Benjamin is passionate about engineering, entrepreneurship, and community engagement, with an interest in building products, understanding the business behind them, and creating solutions that have real-world impact.",
+      },
+    ],
   },
   {
-    name: "Kwame Boateng",
-    role: "Founder, BuildTech Ghana",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDfKSIBQGhzQUIbenS_J0f6kAMmYBI1wclFyHGWLvMKzoztB1y1LMMKuBje5tGIAyN1DwOMkfx-v6fv63V_2zzYEYl_rsU_iJheYf-68kFYT_TDvLTZX8N9ERMYpvKwXDGtDp-_1BKu_qePHrkDEKZHZFIIWcRf1loMs00rlQc7G78W2hOv4S3pdeTDijvDF0lZYNgMYtuM6aKTzHzjJErva40NPd5QMjn0mtB5gn47sYaxOMVZNSyBGbpCL5tZsJzvsiqQBg98zqQ_",
-    alt: "Headshot of a male software architect in a black t-shirt with a friendly smile",
+    category: "Computer Vision & Agentic AI",
+    focus:
+      "Object and obstacle detection, vision systems, and agentic automation",
+    mentors: [
+      {
+        name: "Prof. Justice Kwame Appati",
+        image: "/mentors/2026/Justice Appati.jpeg",
+        bio: "Prof. Justice Kwame Appati is an Associate Professor of Computer Science and an Applied Mathematician whose research spans Artificial Intelligence, Data Science, Machine Learning, Digital Health, Mathematical Modelling, High-Performance Computing, and intelligent decision-support systems. He has led interdisciplinary research, secured competitive grants, supervised postgraduate research, and developed AI-driven solutions for healthcare, education, and digital transformation. His expertise combines rigorous mathematical modelling with practical AI deployment, making him well suited for international research collaborations, consultancy, and capacity-building initiatives.",
+      },
+
+      // Publish when both a bio and portrait are available.
+      // {
+      //   name: "Mr. Labaran Adamu Mohammed",
+      //   image: "",
+      //   bio: "",
+      // },
+    ],
   },
   {
-    name: "Sarah Appiah",
-    role: "UX Director, Fintech Global",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBiup_yx2bwL5e2lCRj9d0Gx0Y-fVXHGYeWVhSSIRHjXQvMQ6qKayf5jBDvSaw8JOs49dCG7qwoxRxixQz6qm6uNnZb7pF-EtdnaKuMBWtjpycPxSwyTEScxSc7XPbNJCxOCKq1wp0kAyVfcs3uG29Xaysz72Qds7c7yP5KMOljApZfTrkObXsApY0C2TyyotP3M13g_kDBIOsb5XcQozjiz8mTxctsie2--qtQyZAWQMYZFTwPMxtBXyOkLDBmnTJSkrLK4YDScPgj",
-    alt: "Studio portrait of a senior product designer wearing stylish glasses",
+    category: "Accessibility & Personalization",
+    focus:
+      "Inclusive design, assistive technologies, accessibility testing, and personalization",
+    mentors: [
+      {
+        name: "Prof. Augustina Naami",
+        image: "/mentors/2026/Prof Naami.png",
+        imagePosition: "center 25%",
+        bio: "Prof. Naami is an expert in disability and social work, with research spanning disability, mental health, intersecting vulnerabilities, social policy, and climate change. She brings both theoretical insight and practical experience from Ghana and the United States. Her leadership in innovative research includes the use of photovoice methodology and the assessment of emerging technologies for their inclusivity for persons with disabilities. Currently, she serves as an Associate Professor of Disability in Social Work, the first of its kind in Ghana, a pioneering role that provides her with significant leverage to shape and advance disability research and practice in the country.",
+      },
+      {
+        name: "Mr. Timothy Owusu",
+        image: "/mentors/2026/Timothy Owusu.jpeg",
+        bio: "Mr. Timothy Owusu is the Founder and CEO of myCompany365, iKolilu, and LangXChange AI Labs. He developed the first online registration system in Ghana in 2003. He is a seasoned full-stack developer and product strategist with more than 15 years of experience in software engineering, data systems, and digital transformation across education, government, and enterprise sectors. With deep expertise in AI, database management, and scalable systems architecture, Timothy leads the vision and execution of innovative technology solutions that drive operational efficiency and measurable impact. He is passionate about leveraging technology to solve complex problems and improve outcomes across Africa.",
+      },
+    ],
   },
-  {
-    name: "James Owusu",
-    role: "Venture Partner, Accra VC",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAAXJEMakB-rzBUC1kGsDspTPQAhaALyrt9fbGpOj5CurmMEpiD9Tv9sRikvBW_OTx05_k7mHeq9NpqVcG0ADLjCPr4wzd1-dfrciGKefYswEur8KXubDtsiXgqrTHQ3oGotIDNwxIxEspa3z-lFij8kEvcRcmAxSyxh11axlEahfXoa26DBqFAnb7Tj56SYzR6msudUZBp2ut7bSGcE4t4EtlG-_SNzi6ni8aRvZATNfaNWcN6H0JMJHO4hpcRZlu1GhXUoU3PO3mX",
-    alt: "Headshot of a young male entrepreneur in a sharp blazer",
-  },
+
+  // These categories and mentors are ready to activate when their bios and
+  // portraits are supplied. Keeping them here preserves the complete roster.
+  // {
+  //   category: "AI & Language Technologies",
+  //   focus: "ASR, TTS, NLP, machine learning, LLMs, and conversational AI",
+  //   mentors: [
+  //     { name: "Ms. Akosua Wiafe-Akenten", image: "", bio: "" },
+  //     { name: "Mr. Evans Kwasi", image: "", bio: "" },
+  //   ],
+  // },
+  // {
+  //   category: "Fintech & Digital Services",
+  //   focus: "MoMo APIs, digital payments, security, and financial inclusion",
+  //   mentors: [
+  //     { name: "Mr. Joshua Kwabla", image: "", bio: "" },
+  //   ],
+  // },
+  // {
+  //   category: "UX/UI",
+  //   focus: "User-centred design, prototyping, interaction design, and usability testing",
+  //   mentors: [
+  //     { name: "Dr. Sarah Dsane", image: "", bio: "" },
+  //     { name: "Mr. Praise Olutuase", image: "", bio: "" },
+  //   ],
+  // },
 ];
 
 export default function MentorsGrid() {
   return (
-    <section className="py-section-gap px-margin-mobile md:px-margin-desktop">
-      <div className="max-w-container-max mx-auto">
-        <div className="flex items-center justify-between mb-12">
-          <h2 className="font-display-lg text-headline-md">Guided by Experts</h2>
-          <div className="flex gap-2">
-            <button
-              aria-label="Previous mentors"
-              className="p-3 border border-on-surface/10 rounded-full hover:bg-surface-container transition-colors"
+    <section
+      id="mentors"
+      aria-labelledby="mentors-title"
+      className="py-section-gap px-margin-mobile md:px-margin-desktop"
+    >
+      <div className="mx-auto max-w-container-max">
+        <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-12 md:items-end">
+          <div className="md:col-span-7">
+            <span className="font-stats-mono text-label-caps uppercase tracking-[0.2em] text-primary">
+              Guided by experience
+            </span>
+            <h2
+              id="mentors-title"
+              className="mt-2 font-display-lg text-headline-md"
             >
-              <Icon name="arrow_back" />
-            </button>
-            <button
-              aria-label="Next mentors"
-              className="p-3 border border-on-surface/10 rounded-full hover:bg-surface-container transition-colors"
-            >
-              <Icon name="arrow_forward" />
-            </button>
+              Meet the Mentors
+            </h2>
           </div>
+          <p className="font-body-md text-on-surface-variant md:col-span-5">
+            Learn from researchers, engineers, and founders bringing deep
+            expertise to the 2026 mentorship programme.
+          </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-gutter">
-          {MENTORS.map((mentor) => (
-            <div key={mentor.name} className="text-center group">
-              <div className="aspect-square rounded-full overflow-hidden mb-6 editorial-border p-1 group-hover:border-primary transition-colors duration-300">
-                <div className="relative w-full h-full rounded-full overflow-hidden">
-                  <Image
-                    src={mentor.image}
-                    alt={mentor.alt}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover"
-                  />
-                </div>
+
+        <div className="space-y-16">
+          {MENTOR_CATEGORIES.map((group, groupIndex) => (
+            <section
+              key={group.category}
+              aria-labelledby={"mentor-category-" + groupIndex}
+              className="grid grid-cols-1 gap-8 border-t border-on-surface/15 pt-8 lg:grid-cols-12"
+            >
+              <div className="lg:col-span-4">
+                <p className="font-stats-mono text-label-caps text-primary">
+                  0{groupIndex + 1}
+                </p>
+                <h3
+                  id={"mentor-category-" + groupIndex}
+                  className="mt-3 max-w-sm font-headline-md text-[26px] leading-snug"
+                >
+                  {group.category}
+                </h3>
+                <p className="mt-3 max-w-sm font-body-md text-sm text-on-surface-variant">
+                  {group.focus}
+                </p>
               </div>
-              <h4 className="font-headline-md text-[20px]">{mentor.name}</h4>
-              <p className="font-label-caps text-on-surface-variant uppercase mt-1">
-                {mentor.role}
-              </p>
-            </div>
+
+              <div className="space-y-5 lg:col-span-8">
+                {group.mentors.map((mentor) => (
+                  <article
+                    key={mentor.name}
+                    className="grid overflow-hidden rounded-2xl bg-surface-container-low editorial-border sm:grid-cols-[180px_1fr] lg:grid-cols-[210px_1fr]"
+                  >
+                    <div className="relative min-h-64 bg-surface-container sm:min-h-full">
+                      <Image
+                        src={mentor.image}
+                        alt={"Portrait of " + mentor.name}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 210px"
+                        className="object-cover"
+                        style={{ objectPosition: mentor.imagePosition }}
+                      />
+                    </div>
+                    <div className="p-6 md:p-8">
+                      <p className="font-label-caps text-label-caps uppercase tracking-[0.16em] text-primary">
+                        Mentor
+                      </p>
+                      <h4 className="mt-2 font-headline-md text-[25px] leading-snug text-on-surface">
+                        {mentor.name}
+                      </h4>
+                      <p className="mt-4 font-body-md text-[16px] leading-relaxed text-on-surface-variant">
+                        {mentor.bio}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
       </div>

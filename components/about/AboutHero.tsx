@@ -22,13 +22,13 @@ export default function AboutHero() {
               </span>
               . We are a multidisciplinary team of researchers, developers, and
               designers working at the intersection of technology and human
-              behavior. <a className="editorial-link" href="https://linktr.ee/DCSHCILAB">Learn about our publications →</a>
+              behavior. <a className="editorial-link" href="https://linktr.ee/DCSHCILAB">View our work →</a>
             </p>
           </div>
         </div>
         <div className="relative rounded-[14px] overflow-hidden w-full h-[400px] md:h-[500px]">
           <ImageWithFallback
-            src={publicImage("/about/hero.jpg")}
+            src={"/about/hero_enhanced.jpg"}
             alt="The HCI Lab team at the University of Ghana"
             fill
             sizes="(max-width: 1200px) 100vw, 1200px"
