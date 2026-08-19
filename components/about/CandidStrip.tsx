@@ -7,7 +7,7 @@ import { publicImage } from "@/lib/assets";
 const SHOTS = [
   { alt: "HCI Lab candid photo", image: "/about/candid/group-1.jpg" },
   { alt: "HCI Lab candid photo", image: "/about/candid/group-2.jpeg" },
-  { alt: "HCI Lab candid photo", image: "/about/candid/group-3.jpg" },
+  { alt: "HCI Lab candid photo", image: "/about/candid/group-3.JPG" },
   { alt: "HCI Lab candid photo", image: "/about/candid/group-4.png" },
 ];
 
