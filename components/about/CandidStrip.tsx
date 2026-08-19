@@ -6,7 +6,7 @@ import { publicImage } from "@/lib/assets";
 // resolves). `alt` describes the photo for screen readers.
 const SHOTS = [
   { alt: "HCI Lab candid photo", image: "/about/candid/group-1.jpg" },
-  { alt: "HCI Lab candid photo", image: "/about/candid/group-2.jpg" },
+  { alt: "HCI Lab candid photo", image: "/about/candid/group-2.jpeg" },
   { alt: "HCI Lab candid photo", image: "/about/candid/group-3.jpg" },
   { alt: "HCI Lab candid photo", image: "/about/candid/group-4.png" },
 ];
@@ -22,7 +22,7 @@ export default function CandidStrip() {
               className="relative rounded-[14px] overflow-hidden aspect-[4/3]"
             >
               <ImageWithFallback
-                src={publicImage(shot.image)}
+                src={shot.image}
                 alt={shot.alt}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
