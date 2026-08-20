@@ -79,13 +79,15 @@ const MENTOR_CATEGORIES: MentorCategory[] = [
         bio: "Evans Kwasi is an AI/ML researcher and software developer with experience in building machine models and AI technologies for low-resource African languages. As a researcher at the University of Ghana’s DCS HCI Lab, he has worked on TTS, ASR and LLM projects." },
     ],
   },
-  // {
-  //   category: "Fintech & Digital Services",
-  //   focus: "MoMo APIs, digital payments, security, and financial inclusion",
-  //   mentors: [
-  //     { name: "Mr. Joshua Kwabla", image: "", bio: "" },
-  //   ],
-  // },
+  {
+    category: "Fintech & Digital Services",
+    focus: "MoMo APIs, digital payments, security, and financial inclusion",
+    mentors: [
+      { name: "Mr. Joshua Kwabla", 
+        image: "/mentors/2026/joshua_kwabla.png", 
+        bio: "Joshua Kwashie Kwabla is a Data Scientist and AI Researcher with professional experience spanning banking, business intelligence, and financial services technology. His technical and research work focuses on machine learning and Natural Language Processing (NLP), including Automatic Speech Recognition and Large Language Models, applied to healthcare communication in multilingual, low-literacy settings. He brings this combined expertise in financial systems and inclusive AI design to mentor teams in the Fintech & Digital Services category at the MTN Ghana Tekyeremapa Hackathon, guiding solutions around MoMo APIs, digital payments, security, and financial inclusion." },
+    ],
+  },
   // {
   //   category: "UX/UI",
   //   focus: "User-centred design, prototyping, interaction design, and usability testing",
