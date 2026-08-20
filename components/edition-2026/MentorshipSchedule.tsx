@@ -92,7 +92,7 @@ export default function MentorshipSchedule() {
           </div>
           <p className="font-body-md text-on-surface-variant md:col-span-5">
             Meet the experts guiding each impact area from 24–29 August 2026.
-            Choose a morning or evening session and join on Microsoft Teams.
+            We encourage all to join both sessions on Microsoft Teams.
           </p>
         </div>
 

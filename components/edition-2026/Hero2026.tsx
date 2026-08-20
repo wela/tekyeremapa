@@ -38,12 +38,10 @@ export default function Hero2026() {
             </span>
           </div>
           <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 text-on-surface leading-[1.1]">
-            <span className="text-primary">MTN GHANA</span>
+            <span className="text-primary">MTN GHANA</span> Tɛkyerɛma Pa Hackathon 2026
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">
-            Sponsored by MTN Ghana, the 2026 edition brings together Ghana&rsquo;s
-            brightest minds to build scalable, inclusive digital solutions that
-            bridge the communication gap for underserved communities.
+            This hackathon challenges teams to design and develop inclusive digital solutions that support communication in Ghanaian languages. All solutions must beaccessible to persons with disabilities.
           </p>
           <div className="flex flex-wrap gap-8 items-center border-l-2 border-primary pl-6 mb-8">
             {FACTS.map((fact) => (
