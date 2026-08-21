@@ -55,8 +55,8 @@ const MENTORSHIP_DAYS: MentorshipDay[] = [
     date: "28 August",
     category: "AI & Language Technologies",
     sessions: [
-      { period: "Morning", mentor: "Ms. Akosua Wiafe-Akenten" },
-      { period: "Evening", mentor: "Mr. Evans Kwasi" },
+      { period: "Morning", mentor: "Mr. Evans Kwasi" },
+      { period: "Evening", mentor: "Ms. Akosua Wiafe-Akenten" },
     ],
   },
   {

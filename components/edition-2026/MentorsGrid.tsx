@@ -71,7 +71,7 @@ const MENTOR_CATEGORIES: MentorCategory[] = [
     category: "AI & Language Technologies",
     focus: "ASR, TTS, NLP, machine learning, LLMs, and conversational AI",
     mentors: [
-      { name: "Ms. Akosua Wiafe-Akenten", 
+      { name: "Ms. Akosua Nyarkoa Wiafe-Akenten", 
         image: "/mentors/2026/Akosua Nyarkoa W.jpeg", 
         bio: "Akosua is an Artificial Intelligence Engineer with professional experience in Data Analytics and Governance, Risk and Compliance (GRC) consultancy. Her technical and research experience focuses on the application of Artificial Intelligence to language technologies, particularly through Natural Language Processing (NLP) and machine learning techniques. Her research has explored areas including Large Language Models (LLMs), Automatic Speech Recognition (ASR), Machine Translation, and Chatbot development. She is particularly interested in leveraging AI-driven technologies to address real-world challenges, especially in inclusive and low-resource contexts." },
       { name: "Mr. Evans Kwasi", 
