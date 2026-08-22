@@ -8,8 +8,8 @@ import { getGalleryImages } from "@/lib/gallery";
 const FACTS = [
   { label: "Host", value: "University of Ghana" },
   { label: "Sponsor", value: "MTN Ghana" },
-  { label: "Timeline", value: "Jul 20 to Oct 30, 2026" },
-  { label: "Grand Finale", value: "Oct 30, 2026" },
+  { label: "Timeline", value: "July to October" },
+  { label: "Grand Finale", value: "October" },
 ];
 
 export default function Hero2026() {

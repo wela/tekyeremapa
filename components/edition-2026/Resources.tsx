@@ -52,6 +52,13 @@ const MATERIALS: Material[] = [
     file: "/materials/2026/Teams Outreach.pptx",
     format: "PPTX",
   },
+  {
+    title: "Abstract Template",
+    description:
+      "The template for submitting abstracts for the 2026 hackathon.",
+    file: "/materials/2026/Abstract Template.docx",
+    format: "DOCX",
+  },
 ];
 
 /** Pull the 11-char video id from any common YouTube URL form. */

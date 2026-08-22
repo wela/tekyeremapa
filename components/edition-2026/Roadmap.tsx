@@ -1,24 +1,29 @@
+import Icon from "@/components/shared/Icon";
+
+const DETAILED_TIMELINE_URL =
+  "https://docs.google.com/document/d/1Bbn_g1J1NKjp856bTVPoqBhWVtXE3HLb/edit?usp=sharing&ouid=112393053722192340525&rtpof=true&sd=true";
+
 const PHASES = [
   {
     phase: "Pre-Hackathon",
     items: [
-      { activity: "Registration", date: "July 20 – August 10, 2026" },
+      { activity: "Registration", date: "July to August" },
       {
         activity: "Awareness Campaign & Team Outreach",
-        date: "August 3 – August 10, 2026",
+        date: "August",
       },
-      { activity: "Online Bootcamp", date: "August 11 – 31, 2026" },
+      { activity: "Online Bootcamp", date: "August" },
       {
         activity: "Ideation Sprint & Mentor Reviews",
-        date: "September 1 – October 23, 2026",
+        date: "September to October",
       },
     ],
   },
   {
     phase: "Hackathon Week",
     items: [
-      { activity: "In-person Mentoring", date: "October 26 – 29, 2026" },
-      { activity: "Grand Finale", date: "October 30, 2026", highlight: true },
+      { activity: "In-person Mentoring", date: "October" },
+      { activity: "Grand Finale", date: "October", highlight: true },
     ],
   },
   {
@@ -26,7 +31,7 @@ const PHASES = [
     items: [
       {
         activity: "Post-Hackathon Follow-up",
-        date: "November 1 – December 10, 2026",
+        date: "November to December",
       },
     ],
   },
@@ -84,6 +89,16 @@ export default function Roadmap() {
             </div>
           ))}
         </div>
+
+        <a
+          href={DETAILED_TIMELINE_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-10 inline-flex items-center gap-2 font-body-md font-bold text-primary underline decoration-primary/40 underline-offset-4 transition-opacity hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        >
+          View the detailed timelines here
+          <Icon name="open_in_new" className="text-base" />
+        </a>
       </div>
     </section>
   );

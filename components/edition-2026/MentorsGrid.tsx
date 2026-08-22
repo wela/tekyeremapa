@@ -39,11 +39,11 @@ const MENTOR_CATEGORIES: MentorCategory[] = [
       },
 
       // Publish when both a bio and portrait are available.
-      // {
-      //   name: "Mr. Labaran Adamu Mohammed",
-      //   image: "",
-      //   bio: "",
-      // },
+      {
+        name: "Mr. Labaran Adamu Mohammed",
+        image: "/mentors/2026/Adam_Labaran.jpg",
+        bio: "Labaran is software engineer with experience building products across startups, EdTech, fintech, and technology. He holds a degree in Computer Science from KNUST and has worked with organisations including Coursera and Nalo Solutions.",
+      },
     ],
   },
   {
@@ -88,14 +88,18 @@ const MENTOR_CATEGORIES: MentorCategory[] = [
         bio: "Joshua Kwashie Kwabla is a Data Scientist and AI Researcher with professional experience spanning banking, business intelligence, and financial services technology. His technical and research work focuses on machine learning and Natural Language Processing (NLP), including Automatic Speech Recognition and Large Language Models, applied to healthcare communication in multilingual, low-literacy settings. He brings this combined expertise in financial systems and inclusive AI design to mentor teams in the Fintech & Digital Services category at the MTN Ghana Tekyeremapa Hackathon, guiding solutions around MoMo APIs, digital payments, security, and financial inclusion." },
     ],
   },
-  // {
-  //   category: "UX/UI",
-  //   focus: "User-centred design, prototyping, interaction design, and usability testing",
-  //   mentors: [
-  //     { name: "Dr. Sarah Dsane", image: "", bio: "" },
-  //     { name: "Mr. Praise Olutuase", image: "", bio: "" },
-  //   ],
-  // },
+  {
+    category: "UX/UI",
+    focus: "User-centred design, prototyping, interaction design, and usability testing",
+    mentors: [
+      { name: "Dr. Sarah Dsane", 
+        image: "/mentors/2026/Sarah.jpg", 
+        bio: "Sarah Dsane-Nsor is a Computer Science lecturer, Human–Computer Interaction (HCI) researcher, and UX/UI expert with over 10 years of experience in teaching, research, and mentoring. Her work focuses on user-centred and inclusive design, particularly designing digital solutions for underserved and low-resource communities. She has expertise in UX research, user experience design, usability evaluation, and participatory design. Sarah is passionate about mentoring students, early-career researchers, and women in STEM, and supporting the development of inclusive and impactful technology solutions." },
+      { name: "Mr. Praise Olutuase", 
+        image: "/mentors/2026/Mr. Praise Olutuase.jpeg", 
+        bio: "Praise Olutuase is a Principal Consultant at Public Digital, part of its Global Impact team, where he helps governments and private-sector organisations across the UK and Africa design services that put people first. He is a user-centred, research-driven practitioner with over ten years of experience across government, academia, industry, and startups. He co-founded Nigeria Votes, a non-partisan civic platform that helps Nigerians register to vote, know who they are voting for, and observe elections at their own polling units. Building it surfaced how much opportunity there is to strengthen user-centred design across Africa's public services. He has also contributed to government-facing design work in the region, including a service-design engagement with the Government of Ghana. Praise believes good design is not a finishing touch — it is the difference between a service that exists and one that works. He brings this conviction to the UX/UI category, guiding teams to translate real user needs into intuitive, accessible interfaces for multilingual and diverse communities." },
+    ],
+  },
 ];
 
 export default function MentorsGrid() {
